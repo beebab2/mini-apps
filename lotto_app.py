@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import random
 from datetime import date
 
@@ -149,7 +150,7 @@ st.markdown(f'<div class="sub-caption">{date.today().strftime("%Y년 %m월 %d일
 
 exclude_text = st.text_input(
     "제외하고 싶은 번호 (쉼표로 구분)",
-    placeholder="제외하고 싶은 번호를 입력하세요. 예: 4, 13, 27",
+    placeholder="예: 4, 13, 27",
     label_visibility="collapsed",
 )
 n_sets = st.slider("몇 세트를 뽑을까요?", min_value=1, max_value=5, value=1)
@@ -205,8 +206,32 @@ if st.session_state.lotto_results:
     )
     st.caption("※ 본 서비스는 재미로 보는 참고용이며, 당첨을 보장하지 않습니다.")
 
-    share_url = "여기에_배포_후_생긴_URL을_적어주세요"
-    st.text_input("👇 친구에게 공유하기 (링크 복사)", value=share_url, disabled=True)
+    share_url = "https://autolotto.streamlit.app/"
+    st.markdown("👇 **친구에게 공유하기**")
+    components.html(f"""
+    <div style="display:flex; gap:8px; align-items:center; font-family: sans-serif;">
+        <input id="shareUrlLotto" type="text" readonly value="{share_url}"
+            style="flex:1; padding:10px 14px; border-radius:20px; border:1px solid rgba(255,255,255,0.2);
+                   background:rgba(255,255,255,0.08); color:#eafffb; font-size:0.9rem; outline:none;">
+        <button onclick="copyLottoLink(event)"
+            style="padding:10px 18px; border-radius:20px; border:none;
+                   background:linear-gradient(90deg,#78ffd6,#a8ff78); color:#0f2027;
+                   font-weight:700; cursor:pointer; white-space:nowrap; font-size:0.9rem;">
+            복사 📋
+        </button>
+    </div>
+    <script>
+    function copyLottoLink(event) {{
+        var copyText = document.getElementById("shareUrlLotto");
+        navigator.clipboard.writeText(copyText.value).then(function() {{
+            var btn = event.target;
+            var original = btn.innerText;
+            btn.innerText = "복사됨! ✅";
+            setTimeout(function() {{ btn.innerText = original; }}, 1500);
+        }});
+    }}
+    </script>
+    """, height=60)
 
 else:
     st.info("제외할 번호가 있다면 입력하고, 버튼을 눌러 오늘의 행운 번호를 뽑아보세요!")
