@@ -6,7 +6,7 @@ from datetime import date
 # ------------------------------
 # 설정: 여기에 본인 제휴 링크를 넣으세요
 # ------------------------------
-COUPANG_LINK = "https://link.coupang.com/여기에_본인_쿠팡파트너스_링크"
+COUPANG_LINK = "https://link.coupang.com/a/gATwbtGIIS"
 TOSS_LINK = "https://toss.me/여기에_본인_토스_쉐어링크"
 
 st.set_page_config(page_title="오늘의 운세", page_icon="🔮", layout="centered")
