@@ -19,20 +19,20 @@ st.set_page_config(page_title="오늘의 운세", page_icon="🔮", layout="cent
 st.markdown("""
 <style>
     .stApp {
-        background: linear-gradient(180deg, #1a1030 0%, #2d1b4e 50%, #1a1030 100%);
+        background: linear-gradient(180deg, #2b1810 0%, #4a2c1c 50%, #2b1810 100%);
     }
     .main-title {
         text-align: center;
         font-size: 2.4rem;
         font-weight: 800;
-        background: linear-gradient(90deg, #f9d976, #f39f86, #c99df0);
+        background: linear-gradient(90deg, #f9d976, #f0a868, #e8825f);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 0px;
     }
     .sub-caption {
         text-align: center;
-        color: #c9b8e8;
+        color: #e0c2a0;
         margin-bottom: 1.5rem;
     }
     .zodiac-badge {
@@ -42,8 +42,8 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     .fortune-card {
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(249,217,118,0.2);
         border-radius: 20px;
         padding: 24px;
         margin-top: 14px;
@@ -57,22 +57,22 @@ st.markdown("""
     }
     .fortune-cat-text {
         font-size: 1rem;
-        color: #f0eaff;
+        color: #f5e6d3;
         line-height: 1.6;
         margin-bottom: 4px;
     }
     .lucky-box {
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(249,217,118,0.2);
         border-radius: 16px;
         padding: 16px;
         text-align: center;
-        color: #f5f0ff;
+        color: #f5e6d3;
         margin-bottom: 18px;
     }
     div[data-testid="stButton"] button {
-        background: linear-gradient(90deg, #f9d976, #c99df0);
-        color: #1a1030;
+        background: linear-gradient(90deg, #f9d976, #e8825f);
+        color: #2b1810;
         font-weight: 700;
         border-radius: 30px;
         border: none;
@@ -85,16 +85,16 @@ st.markdown("""
     }
     [data-testid="stCaptionContainer"] p,
     .stCaption {
-        color: #e4dbf7 !important;
+        color: #e0c2a0 !important;
         opacity: 1 !important;
     }
     label, .stSlider label {
-        color: #e4dbf7 !important;
+        color: #e0c2a0 !important;
     }
     .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
     .stMarkdown h4, .stMarkdown h5, .stMarkdown h6,
     .stMarkdown p {
-        color: #f5f0ff !important;
+        color: #f5e6d3 !important;
         opacity: 1 !important;
     }
 </style>
@@ -184,8 +184,8 @@ st.markdown("""
         <defs>
             <radialGradient id="ballGrad" cx="35%" cy="30%" r="70%">
                 <stop offset="0%" stop-color="#fff6e0"/>
-                <stop offset="45%" stop-color="#c99df0"/>
-                <stop offset="100%" stop-color="#6b3fa0"/>
+                <stop offset="45%" stop-color="#f0a868"/>
+                <stop offset="100%" stop-color="#a8522e"/>
             </radialGradient>
             <linearGradient id="standGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stop-color="#f9d976"/>
