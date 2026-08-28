@@ -10,6 +10,8 @@ COUPANG_LINK = "https://link.coupang.com/a/gATwbtGIIS"
 TOSS_LINK = "https://toss.me/여기에_본인_토스_쉐어링크"
 
 st.set_page_config(page_title="오늘의 운세", page_icon="🔮", layout="centered")
+# 참고: page_icon(브라우저 탭 아이콘)은 이모지만 지원되어 기기별로 다르게 보일 수 있어요.
+# 본문 제목의 아이콘은 아래에서 SVG로 직접 그려서 기기와 무관하게 항상 동일하게 표시됩니다.
 
 # ------------------------------
 # 커스텀 스타일
@@ -176,10 +178,32 @@ lucky_items = ["손목시계", "우산", "귀걸이", "머그컵", "볼펜", "�
 lucky_numbers = list(range(1, 46))
 lucky_times = ["오전 9시~11시", "정오~오후 1시", "오후 3시~5시", "저녁 7시~9시", "밤 9시 이후"]
 
-st.markdown('<div class="main-title">🔮 오늘의 운세</div>', unsafe_allow_html=True)
+st.markdown("""
+<div class="main-title" style="display:flex; align-items:center; justify-content:center; gap:12px;">
+    <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <radialGradient id="ballGrad" cx="35%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#fff6e0"/>
+                <stop offset="45%" stop-color="#c99df0"/>
+                <stop offset="100%" stop-color="#6b3fa0"/>
+            </radialGradient>
+            <linearGradient id="standGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#f9d976"/>
+                <stop offset="100%" stop-color="#c98a2e"/>
+            </linearGradient>
+        </defs>
+        <circle cx="32" cy="27" r="20" fill="url(#ballGrad)" stroke="#f9d976" stroke-width="1.5"/>
+        <ellipse cx="25" cy="19" rx="6" ry="4" fill="#ffffff" opacity="0.55"/>
+        <path d="M16 50 Q32 42 48 50 L52 58 Q32 52 12 58 Z" fill="url(#standGrad)"/>
+        <path d="M8 8 l2.2 5.2 L15.4 15.4 l-5.2 2.2 L8 22.8 l-2.2-5.2 L0.6 15.4 l5.2-2.2 Z" fill="#f9d976"/>
+        <path d="M53 6 l1.6 3.8 3.8 1.6 -3.8 1.6 -1.6 3.8 -1.6-3.8 -3.8-1.6 3.8-1.6 Z" fill="#f39f86"/>
+    </svg>
+    <span>오늘의 운세</span>
+</div>
+""", unsafe_allow_html=True)
 st.markdown(f'<div class="sub-caption">{date.today().strftime("%Y년 %m월 %d일")} 기준</div>', unsafe_allow_html=True)
 
-name = st.text_input("이름 (선택)", placeholder="예: 인수")
+name = st.text_input("이름 (선택)", placeholder="예: 병훈")
 
 current_year = date.today().year
 year_options = list(range(current_year, 1929, -1))  # 최근 연도부터 1930년까지
