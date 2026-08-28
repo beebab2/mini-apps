@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import random
 from datetime import date
 
@@ -258,8 +259,32 @@ if st.button("오늘의 상세 운세 보기 ✨"):
         "이에 따른 일정액의 수수료를 제공받을 수 있습니다."
     )
 
-    share_url = "여기에_배포_후_생긴_URL을_적어주세요"
-    st.text_input("👇 친구에게 공유하기 (링크 복사)", value=share_url, disabled=True)
+    share_url = "https://mysowoon-fortune.streamlit.app/"
+    st.markdown("👇 **친구에게 공유하기**")
+    components.html(f"""
+    <div style="display:flex; gap:8px; align-items:center; font-family: sans-serif;">
+        <input id="shareUrlFortune" type="text" readonly value="{share_url}"
+            style="flex:1; padding:10px 14px; border-radius:20px; border:1px solid rgba(255,255,255,0.2);
+                   background:rgba(255,255,255,0.08); color:#f0eaff; font-size:0.9rem; outline:none;">
+        <button onclick="copyFortuneLink(event)"
+            style="padding:10px 18px; border-radius:20px; border:none;
+                   background:linear-gradient(90deg,#f9d976,#c99df0); color:#1a1030;
+                   font-weight:700; cursor:pointer; white-space:nowrap; font-size:0.9rem;">
+            복사 📋
+        </button>
+    </div>
+    <script>
+    function copyFortuneLink(event) {{
+        var copyText = document.getElementById("shareUrlFortune");
+        navigator.clipboard.writeText(copyText.value).then(function() {{
+            var btn = event.target;
+            var original = btn.innerText;
+            btn.innerText = "복사됨! ✅";
+            setTimeout(function() {{ btn.innerText = original; }}, 1500);
+        }});
+    }}
+    </script>
+    """, height=60)
 
 else:
     st.info("생년월일을 확인하고 버튼을 눌러 오늘의 상세 운세를 확인해보세요!")
