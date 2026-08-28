@@ -6,7 +6,7 @@ from datetime import date
 # ------------------------------
 # 설정: 여기에 본인 제휴 링크를 넣으세요
 # ------------------------------
-COUPANG_LINK = "https://link.coupang.com/여기에_본인_쿠팡파트너스_링크"
+COUPANG_LINK = "https://link.coupang.com/a/gATwbtGIIS"
 TOSS_LINK = "https://toss.me/여기에_본인_토스_쉐어링크"
 
 st.set_page_config(page_title="행운의 로또 번호", page_icon="🍀", layout="centered")
@@ -150,7 +150,7 @@ st.markdown(f'<div class="sub-caption">{date.today().strftime("%Y년 %m월 %d일
 
 exclude_text = st.text_input(
     "제외하고 싶은 번호 (쉼표로 구분)",
-    placeholder="예: 4, 13, 27",
+    placeholder="제외하고 싶은 번호를 입력하세요. 예: 4, 13, 27",
     label_visibility="collapsed",
 )
 n_sets = st.slider("몇 세트를 뽑을까요?", min_value=1, max_value=5, value=1)
