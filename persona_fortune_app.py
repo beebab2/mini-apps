@@ -323,7 +323,13 @@ PERSONAS = {
                 <circle cx="22" cy="14" r="3" fill="#c0392b"/>
             </g>
         </svg>''',
-        "greeting": "안뇽! 나 지금 좀 신기 올라와서ㅋㅋ 몇 개만 물어볼게!",
+        "greeting": [
+            "안뇽! 나 지금 좀 신기 올라와서ㅋㅋ 몇 개만 물어볼게!",
+            "어머 오늘 기운이 좀 쎄네? 잠깐 이리 와봐ㅋㅋ",
+            "야 타이밍 좋다! 방금 신 내려왔는데ㅋㅋ 딱 물어봐",
+            "오늘따라 촉이 남다른데? 몇 개만 체크해볼게ㅋㅋ",
+            "안녕! 오늘 컨디션 최고야, 시원하게 봐줄게ㅋㅋ",
+        ],
         "ask_name": "너 이름이 뭐야?",
         "react_name": lambda n: f"{n}?ㅋㅋ 이름 딱 좋다! 느낌 온다ㅋㅋ" if n else "음... 익명으로 봐줄게ㅋㅋ",
         "ask_year": "생년월일도 알려줘! 몇 년생이야?",
@@ -350,7 +356,13 @@ PERSONAS = {
             <circle cx="40" cy="16" r="1.6" fill="#ffe066"/>
             <circle cx="60" cy="20" r="1.6" fill="#ffe066"/>
         </svg>''',
-        "greeting": "카드가 당신을 기다리고 있습니다. 조용히 마음을 가라앉히고, 오늘의 운명을 들여다보겠습니다.",
+        "greeting": [
+            "카드가 당신을 기다리고 있습니다. 조용히 마음을 가라앉히고, 오늘의 운명을 들여다보겠습니다.",
+            "고요한 침묵 속에서 카드가 말을 걸어오는군요. 함께 들어보시죠.",
+            "운명의 실이 오늘 당신 앞에 놓여 있습니다. 천천히 풀어드리겠습니다.",
+            "우주의 기운이 심상치 않습니다. 카드로 그 흐름을 읽어드리죠.",
+            "당신의 오늘은 이미 카드 안에 쓰여 있습니다. 함께 확인해볼까요.",
+        ],
         "ask_name": "성함을 말씀해주시겠습니까?",
         "react_name": lambda n: f"{n}... 좋은 이름입니다. 카드가 그 이름을 기억하겠군요." if n else "이름을 밝히지 않으셔도 좋습니다. 익명의 기운도 읽을 수 있으니까요.",
         "ask_year": "생년월일을 알려주십시오.",
@@ -378,7 +390,13 @@ PERSONAS = {
             <line x1="38" y1="20" x2="62" y2="20" stroke="#c9a15a" stroke-width="2" stroke-linecap="round"/>
             <circle cx="62" cy="20" r="2" fill="#c9a15a"/>
         </svg>''',
-        "greeting": "아이고 왔능가~ 할미가 오늘 하루 봐줄 텡께 이리 앉아보소.",
+        "greeting": [
+            "아이고 왔능가~ 할미가 오늘 하루 봐줄 텡께 이리 앉아보소.",
+            "어여 오소, 차 한잔 하면서 얘기 좀 해보드라고.",
+            "오늘 얼굴이 훤하네~ 뭔 좋은 일 있으려나 한번 봐줄게.",
+            "아이고 반갑네, 몸은 괜찮은겨? 오늘 기운 좀 짚어줄게.",
+            "이리 와서 앉어, 할미가 다 봐줄 텡께 걱정 붙들어매소.",
+        ],
         "ask_name": "이름이 뭐라고 혔지?",
         "react_name": lambda n: f"{n}이여? 이름도 참 이쁘네." if n else "이름 안 갈쳐줘도 괜찮여~",
         "ask_year": "언제 태어났능가? 생년월일 좀 알려주소.",
@@ -388,7 +406,13 @@ PERSONAS = {
     },
     "baby_fox": {
         "name": "말랑말랑 아기여우", "emoji": "🦊", "color": "#ff9662",
-        "greeting": "안녕! 나는 숲속 아기여우야! 오늘 네 운세, 내가 콕콕 짚어줄게!",
+        "greeting": [
+            "안녕! 나는 숲속 아기여우야! 오늘 네 운세, 내가 콕콕 짚어줄게!",
+            "짜잔! 아기여우 등장! 오늘 하루 궁금하지?!",
+            "안녕안녕! 오늘따라 코가 간질간질해, 뭔가 좋은 일 있나봐!",
+            "헤헤 나 방금 낮잠 자다 왔어! 이제 운세 봐줄 준비 완료!",
+            "킁킁, 좋은 냄새가 나! 오늘 운 좋은 냄새인가?!",
+        ],
         "ask_name": "너 이름이 뭐야? 알려줘!",
         "react_name": lambda n: f"{n}! 이름 완전 예쁘다!!" if n else "이름 없어도 괜찮아! 그냥 봐줄게!",
         "ask_year": "언제 태어났어? 생년월일 알려줘!",
@@ -413,7 +437,13 @@ PERSONAS = {
             <rect x="42" y="6" width="16" height="16" rx="3" fill="#111111"/>
             <ellipse cx="50" cy="24" rx="26" ry="6" fill="#111111"/>
         </svg>''',
-        "greeting": "어서 오십시오. 사주를 오래 봐온 사람으로서, 오늘 하루의 기운을 차분히 짚어드리겠습니다.",
+        "greeting": [
+            "어서 오십시오. 사주를 오래 봐온 사람으로서, 오늘 하루의 기운을 차분히 짚어드리겠습니다.",
+            "반갑습니다. 오늘도 성심껏 봐드리겠습니다.",
+            "앉으시죠. 사주는 정직합니다, 있는 그대로 말씀드리겠습니다.",
+            "오랜 경험으로 오늘 기운을 정확히 짚어드리겠습니다.",
+            "어서 오세요. 편하게 여쭤보시면 차근차근 풀어드리겠습니다.",
+        ],
         "ask_name": "성함이 어떻게 되십니까?",
         "react_name": lambda n: f"{n} 님이시군요. 잘 알겠습니다." if n else "성함은 말씀 안 하셔도 무방합니다.",
         "ask_year": "생년월일을 말씀해주시죠.",
@@ -441,7 +471,13 @@ PERSONAS = {
                 <circle cx="62" cy="72" r="2.4"/>
             </g>
         </svg>''',
-        "greeting": "나무관세음보살. 그대의 발걸음이 이곳에 닿은 것도 인연이니, 오늘의 기운을 살펴보겠소.",
+        "greeting": [
+            "나무관세음보살. 그대의 발걸음이 이곳에 닿은 것도 인연이니, 오늘의 기운을 살펴보겠소.",
+            "먼 길 오셨구려. 잠시 앉아 마음을 가다듬으시오.",
+            "오늘 하늘의 기운이 예사롭지 않소. 함께 살펴봅시다.",
+            "인연이란 참으로 신묘한 것이오. 그대의 오늘을 들여다보겠소.",
+            "나무아미타불. 조급해 마시고 천천히 여쭤보시오.",
+        ],
         "ask_name": "그대의 이름은 무엇이오?",
         "react_name": lambda n: f"{n}이라, 좋은 이름을 가지셨소." if n else "이름을 밝히지 않아도 무방하오.",
         "ask_year": "태어난 해와 날을 알려주시오.",
@@ -469,7 +505,13 @@ PERSONAS = {
             <path d="M45 53 Q50 56 55 53" stroke="#8a5a7a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
             <path d="M50 12 A4 4 0 1 0 50 4 A3 3 0 1 1 50 12 Z" fill="#ffe066"/>
         </svg>''',
-        "greeting": "안녕하신가, 인간이여. 나는 오랜 세월을 살아온 여우니라. 그대의 오늘을 잠시 들여다보겠네.",
+        "greeting": [
+            "안녕하신가, 인간이여. 나는 오랜 세월을 살아온 여우니라. 그대의 오늘을 잠시 들여다보겠네.",
+            "달빛이 유난히 밝은 밤이군. 그대의 기운을 한번 살펴볼까.",
+            "오랜만에 흥미로운 손님이 왔구나. 이리 가까이 오게.",
+            "그대에게서 묘한 기운이 느껴지는군. 잠시 들여다보겠네.",
+            "천 년을 살아도 인간의 운명은 늘 새롭구나. 오늘을 봐주지.",
+        ],
         "ask_name": "그대의 이름을 말해보게.",
         "react_name": lambda n: f"{n}이라... 기억해두겠네." if n else "이름은 중요치 않네, 그저 기운을 보면 되니.",
         "ask_year": "태어난 해와 날을 알려주게.",
@@ -479,7 +521,13 @@ PERSONAS = {
     },
     "cat_sage": {
         "name": "고양이도사", "emoji": "🐱", "color": "#f4a460",
-        "greeting": "냥. 오늘 운세가 궁금해서 온 게냥? 뭐, 어쩔 수 없이 봐주지 냥.",
+        "greeting": [
+            "냥. 오늘 운세가 궁금해서 온 게냥? 뭐, 어쩔 수 없이 봐주지 냥.",
+            "흥, 또 왔구나냥. 오늘은 특별히 봐준다냥.",
+            "하암... 낮잠 자다 왔다냥. 뭐 궁금한 게 있다고?",
+            "너로구나냥. 마침 심심했는데 잘 왔다냥.",
+            "냥? 오늘따라 기운이 요상하다냥. 한번 볼까.",
+        ],
         "ask_name": "이름이 뭐냥?",
         "react_name": lambda n: f"{n}냥? 흥, 기억해두겠다냥." if n else "이름 안 갈쳐줘도 상관없다냥.",
         "ask_year": "생년월일 대라냥.",
@@ -510,7 +558,13 @@ PERSONAS = {
             <path d="M50 45 L49.3 49 Q50 50 50.7 49" stroke="#d8ac86" stroke-width="0.8" fill="none" stroke-linecap="round"/>
             <path d="M45 52 Q50 55 55 52" stroke="#c0526f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
         </svg>''',
-        "greeting": "얘들아 나 요즘 사주에 완전 꽂혀서 취미로 봐주고 있엉! 너두 궁금하지? ㅎㅎ",
+        "greeting": [
+            "얘들아 나 요즘 사주에 완전 꽂혀서 취미로 봐주고 있엉! 너두 궁금하지? ㅎㅎ",
+            "오 마침 잘 왔다! 나 방금 사주 공부하고 왔거든ㅎㅎ",
+            "얘 오늘 촉 미쳤어 진짜, 빨리 물어봐!",
+            "안뇽! 오늘 운세 완전 기대되지 않아? 궁금하지 나도!",
+            "짜잔~ 등장! 오늘도 재미로 한번 봐줄게!",
+        ],
         "ask_name": "이름 뭐야?? 궁금해!",
         "react_name": lambda n: f"{n}?? 완전 예쁜 이름이잖앙!!" if n else "이름 비밀이어도 오케이!",
         "ask_year": "생년월일 알려줘! 몇 년생이야?",
@@ -536,7 +590,13 @@ PERSONAS = {
             <rect x="38" y="24" width="24" height="5" fill="#5c2a5c"/>
             <circle cx="50" cy="26.5" r="2.4" fill="#c9a15a"/>
         </svg>''',
-        "greeting": "후후... 마녀의 솥이 오늘도 부글부글 끓고 있군요. 당신의 운명을 한번 저어볼까요?",
+        "greeting": [
+            "후후... 마녀의 솥이 오늘도 부글부글 끓고 있군요. 당신의 운명을 한번 저어볼까요?",
+            "오늘 밤 별자리가 유난히 수상하군요. 함께 들여다보죠.",
+            "흥미로운 손님이 오셨네요. 솥 안의 재료들이 벌써 반응하고 있어요.",
+            "당신의 운명, 오늘은 어떤 색일까요? 함께 확인해보죠.",
+            "마녀의 감이 말하길, 오늘은 특별한 날이라는군요.",
+        ],
         "ask_name": "이름을 말해보세요, 솥에 넣어드리죠.",
         "react_name": lambda n: f"{n}... 흥미로운 이름이군요. 솥에 넣어보죠." if n else "이름이 없어도, 마녀는 다 알아낸답니다.",
         "ask_year": "태어난 날짜를 말해보세요.",
@@ -636,6 +696,7 @@ new_persona_id = st.selectbox(
 if new_persona_id != st.session_state.persona_id:
     st.session_state.persona_id = new_persona_id
     st.session_state.persona_locked = True
+    st.session_state.current_greeting = random.choice(PERSONAS[new_persona_id]["greeting"])
     st.session_state.step = 0
     st.rerun()
 
@@ -678,13 +739,14 @@ st.markdown(f'<div class="progress-dots">{dots}</div>', unsafe_allow_html=True)
 # ------------------------------
 if st.session_state.step == 0:
     if st.session_state.persona_locked:
-        st.markdown(f'<div class="speech-bubble">{persona["greeting"]}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="speech-bubble">{st.session_state.get("current_greeting", random.choice(persona["greeting"]))}</div>', unsafe_allow_html=True)
         if st.button("다음 →", use_container_width=True):
             st.session_state.step = 1
             st.rerun()
     else:
         if st.button("시작하기 →", use_container_width=True):
             st.session_state.persona_locked = True
+            st.session_state.current_greeting = random.choice(persona["greeting"])
             st.rerun()
 
 # ------------------------------
