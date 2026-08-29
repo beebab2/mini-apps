@@ -106,10 +106,13 @@ st.markdown("""
     div[data-baseweb="select"] {
         border-radius: 12px !important;
     }
-    div[data-baseweb="select"] > div {
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] div {
         background: rgba(249,217,118,0.15) !important;
-        border: 1.5px solid rgba(249,217,118,0.5) !important;
         color: #fff6e0 !important;
+        border-color: rgba(249,217,118,0.5) !important;
+    }
+    div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+        border: 1.5px solid rgba(249,217,118,0.5) !important;
         border-radius: 12px !important;
     }
     div[data-baseweb="select"] span {
