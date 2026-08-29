@@ -83,7 +83,7 @@ st.markdown("""
         font-weight: 700;
         border-radius: 30px;
         border: none;
-        padding: 10px 0;
+        padding: 10px 28px;
         width: 100%;
         text-align: center;
         display: flex;
@@ -267,7 +267,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-if st.button("오늘의 상세 운세 보기 ✨"):
+if st.button("오늘의 상세 운세 보기 ✨", use_container_width=True):
     # 이름 + 생년월일 + 오늘 날짜로 시드 고정 → 같은 사람은 하루 동안 같은 결과
     seed_str = f"{name}-{birth_date}-{date.today()}"
     random.seed(seed_str)
