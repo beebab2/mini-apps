@@ -163,8 +163,8 @@ st.markdown("""
         animation: fadeInUp 0.6s ease-out 0.2s both;
     }
     .fortune-card {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(0,0,0,0.45);
+        border: 1px solid rgba(255,255,255,0.18);
         border-radius: 20px;
         padding: 22px;
         margin-bottom: 12px;
