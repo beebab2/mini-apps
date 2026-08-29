@@ -165,8 +165,11 @@ st.markdown("""
     .fortune-card {
         border-radius: 20px;
         padding: 22px;
-        margin-bottom: 12px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+        margin-bottom: 14px;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.6),
+            inset 0 -2px 6px rgba(0,0,0,0.06),
+            0 8px 18px rgba(0,0,0,0.28);
     }
     .fortune-cat-title {
         font-size: 1.05rem;
@@ -179,30 +182,30 @@ st.markdown("""
         line-height: 1.6;
     }
     .fortune-card-general {
-        background: linear-gradient(135deg, #fdf0d5 0%, #ecce9a 100%);
-        border: 1px solid rgba(150, 105, 25, 0.35);
+        background: linear-gradient(135deg, #fffaf0 0%, #f7e6c4 100%);
+        border: 1px solid rgba(150, 105, 25, 0.25);
     }
-    .fortune-card-general .fortune-cat-title { color: #5c3d0e; }
+    .fortune-card-general .fortune-cat-title { color: #7a5518; }
     .fortune-card-love {
-        background: linear-gradient(135deg, #fce6ec 0%, #f0bdcb 100%);
-        border: 1px solid rgba(160, 70, 95, 0.35);
+        background: linear-gradient(135deg, #fef2f5 0%, #f7d9e1 100%);
+        border: 1px solid rgba(160, 70, 95, 0.25);
     }
-    .fortune-card-love .fortune-cat-title { color: #6e2438; }
+    .fortune-card-love .fortune-cat-title { color: #8a3d52; }
     .fortune-card-money {
-        background: linear-gradient(135deg, #eef5e2 0%, #c9dfb2 100%);
-        border: 1px solid rgba(80, 110, 40, 0.35);
+        background: linear-gradient(135deg, #f5faee 0%, #dfeed0 100%);
+        border: 1px solid rgba(80, 110, 40, 0.25);
     }
-    .fortune-card-money .fortune-cat-title { color: #33470f; }
+    .fortune-card-money .fortune-cat-title { color: #4a6021; }
     .fortune-card-health {
-        background: linear-gradient(135deg, #e2f3f0 0%, #a9d9d1 100%);
-        border: 1px solid rgba(40, 100, 90, 0.35);
+        background: linear-gradient(135deg, #f0faf8 0%, #cdeae4 100%);
+        border: 1px solid rgba(40, 100, 90, 0.25);
     }
-    .fortune-card-health .fortune-cat-title { color: #123c35; }
+    .fortune-card-health .fortune-cat-title { color: #1f5951; }
     .fortune-card-relationship {
-        background: linear-gradient(135deg, #f0e6fa 0%, #cdb3e8 100%);
-        border: 1px solid rgba(90, 55, 140, 0.35);
+        background: linear-gradient(135deg, #f8f2fc 0%, #e3d2f2 100%);
+        border: 1px solid rgba(90, 55, 140, 0.25);
     }
-    .fortune-card-relationship .fortune-cat-title { color: #3d2160; }
+    .fortune-card-relationship .fortune-cat-title { color: #573579; }
     .lucky-box {
         background: rgba(255,255,255,0.06);
         border: 1px solid rgba(255,255,255,0.15);
