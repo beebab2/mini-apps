@@ -182,7 +182,7 @@ st.markdown("""
     @media (max-width: 480px) {
         div[data-testid="stLinkButton"] a {
             font-size: 1.35rem !important;
-            padding: 20px 8px !important;
+            padding: 10px 8px !important;
             line-height: 1.3 !important;
         }
         div[data-testid="stLinkButton"] a * {
