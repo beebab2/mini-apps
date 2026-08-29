@@ -55,10 +55,17 @@ st.markdown("""
         text-align: center;
         font-size: 2rem;
         font-weight: 800;
+        margin-bottom: 1.2rem;
+    }
+    .title-blue {
+        background: linear-gradient(90deg, #6ec6ff, #3fa9f5, #1e88e5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .title-warm {
         background: linear-gradient(90deg, #ffcf6b, #ff9d4d, #ff7043);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 1.2rem;
         text-shadow: 0 0 18px rgba(255, 180, 90, 0.35);
     }
     .persona-avatar {
@@ -514,7 +521,7 @@ if "birth_month" not in st.session_state:
 if "birth_day" not in st.session_state:
     st.session_state.birth_day = 1
 
-st.markdown('<div class="main-title">🔮 운세 캐릭터관</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">🔮 <span class="title-blue">운세</span> <span class="title-warm">캐릭터관</span></div>', unsafe_allow_html=True)
 
 # 캐릭터 선택 (언제든 변경 가능 -> 바꾸면 처음부터 다시 시작)
 new_persona_id = st.selectbox(
