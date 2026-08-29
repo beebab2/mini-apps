@@ -650,7 +650,11 @@ elif st.session_state.step == 4:
     <div class="speech-bubble">{persona['emoji']} {persona['closing']}</div>
     """, unsafe_allow_html=True)
 
-    st.markdown("### 🎁 오늘의 운세를 더 좋게 만들어줄 아이템")
+    st.markdown(
+        '<h3 style="padding-left:1.4em; text-indent:-1.4em; margin:0.5em 0;">'
+        '🎁 오늘의 운세를 더 좋게 만들어줄 아이템</h3>',
+        unsafe_allow_html=True,
+    )
     col1, col2 = st.columns(2)
     with col1:
         st.link_button("쿠팡에서 행운템 보기 🛒", COUPANG_LINK, use_container_width=True)
