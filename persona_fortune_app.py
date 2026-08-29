@@ -811,6 +811,73 @@ def get_zodiac(year: int) -> str:
     return ZODIAC_ORDER[(year - 1924) % 12]
 
 
+# ------------------------------
+# 사주(일주/오행) 계산
+# 참고: 실제 명리학은 절기(입춘 등) 기준으로 년/월주를 따지고, 정확한 시주 계산은
+# 일간(日干)에 따른 오서둔표가 필요합니다. 여기서는 재미로 보는 용도로,
+# 1984년 2월 2일(갑자일로 널리 알려진 날)을 기준점 삼아 일주만 계산합니다.
+# ------------------------------
+STEM = ["갑", "을", "병", "정", "무", "기", "경", "신", "임", "계"]
+BRANCH = ["자", "축", "인", "묘", "진", "사", "오", "미", "신", "유", "술", "해"]
+STEM_ELEMENT = {
+    "갑": "목", "을": "목", "병": "화", "정": "화", "무": "토",
+    "기": "토", "경": "금", "신": "금", "임": "수", "계": "수",
+}
+ELEMENT_EMOJI = {"목": "🌳", "화": "🔥", "토": "⛰️", "금": "⚔️", "수": "💧"}
+ELEMENT_DESC = {
+    "목": "성장하고 뻗어나가려는 기운",
+    "화": "열정적이고 밝게 타오르는 기운",
+    "토": "묵직하고 안정적인 기운",
+    "금": "단단하고 결단력 있는 기운",
+    "수": "유연하고 지혜로운 기운",
+}
+
+HOUR_PERIODS = [
+    ("모름 / 입력 안 함", None),
+    ("자시 (23:00~01:00)", "자"),
+    ("축시 (01:00~03:00)", "축"),
+    ("인시 (03:00~05:00)", "인"),
+    ("묘시 (05:00~07:00)", "묘"),
+    ("진시 (07:00~09:00)", "진"),
+    ("사시 (09:00~11:00)", "사"),
+    ("오시 (11:00~13:00)", "오"),
+    ("미시 (13:00~15:00)", "미"),
+    ("신시 (15:00~17:00)", "신"),
+    ("유시 (17:00~19:00)", "유"),
+    ("술시 (19:00~21:00)", "술"),
+    ("해시 (21:00~23:00)", "해"),
+]
+
+
+def get_day_ganzhi(d: date):
+    """1984-02-02(갑자일 기준점)로부터 며칠 지났는지로 60갑자 중 일주를 계산."""
+    anchor = date(1984, 2, 2)
+    diff = (d - anchor).days
+    stem = STEM[diff % 10]
+    branch = BRANCH[diff % 12]
+    return stem, branch
+
+
+# 시주 계산용: 일간에 따라 자시(子時)의 천간이 정해지는 전통 규칙 (오서둔/五鼠遁)
+DAY_STEM_TO_HOUR_START = {
+    "갑": 0, "기": 0,   # 갑기환가갑 -> 자시는 갑(甲)부터
+    "을": 2, "경": 2,   # 을경병작수 -> 병(丙)부터
+    "병": 4, "신": 4,   # 병신종무기 -> 무(戊)부터
+    "정": 6, "임": 6,   # 정임경자거 -> 경(庚)부터
+    "무": 8, "계": 8,   # 무계하방발 -> 임(壬)부터
+}
+
+
+def get_hour_ganzhi(day_stem: str, hour_branch: str):
+    """일간 + 시지를 받아 시주(시간의 천간+지지)를 계산."""
+    if hour_branch is None:
+        return None, None
+    branch_idx = BRANCH.index(hour_branch)
+    start_idx = DAY_STEM_TO_HOUR_START[day_stem]
+    stem_idx = (start_idx + branch_idx) % 10
+    return STEM[stem_idx], hour_branch
+
+
 fortune_pool = {
     "총운": [
         "아침에 무심코 튼 라디오에서 흘러나온 노래 한 소절이, 하루 종일 발걸음을 가볍게 만들어줄 거예요. 사소한 우연이 큰 힌트가 되는 날입니다.",
@@ -1407,6 +1474,8 @@ if "birth_month" not in st.session_state:
     st.session_state.birth_month = 1
 if "birth_day" not in st.session_state:
     st.session_state.birth_day = 1
+if "birth_time" not in st.session_state:
+    st.session_state.birth_time = None
 
 st.markdown('<div class="main-title" style="margin-left:-16px;">🔮 <span class="title-blue">운세</span> <span class="title-warm">캐릭터관</span></div>', unsafe_allow_html=True)
 
@@ -1526,6 +1595,16 @@ elif st.session_state.step == 2:
     with col_d:
         bd = st.selectbox("일", list(range(1, 32)), index=st.session_state.birth_day - 1)
 
+    hour_labels = [h[0] for h in HOUR_PERIODS]
+    hour_values = [h[1] for h in HOUR_PERIODS]
+    current_hour_index = hour_values.index(st.session_state.birth_time) if st.session_state.birth_time in hour_values else 0
+    bt_label = st.selectbox(
+        "태어난 시간 (선택 — 넣으면 시주까지 더 자세히 봐드려요)",
+        hour_labels,
+        index=current_hour_index,
+    )
+    bt = hour_values[hour_labels.index(bt_label)]
+
     if st.button("다음 →", use_container_width=True):
         try:
             date(by, bm, bd)
@@ -1535,12 +1614,14 @@ elif st.session_state.step == 2:
         st.session_state.birth_year = by
         st.session_state.birth_month = bm
         st.session_state.birth_day = bd
+        st.session_state.birth_time = bt
         st.session_state.step = 3
         st.rerun()
     if st.button("← 이전", use_container_width=True):
         st.session_state.birth_year = by
         st.session_state.birth_month = bm
         st.session_state.birth_day = bd
+        st.session_state.birth_time = bt
         st.session_state.step = 1
         st.rerun()
 
@@ -1554,6 +1635,24 @@ elif st.session_state.step == 3:
         f'<div class="speech-bubble">{ZODIAC_EMOJI[zodiac]} {reaction}</div>',
         unsafe_allow_html=True,
     )
+
+    birth_date = date(st.session_state.birth_year, st.session_state.birth_month, st.session_state.birth_day)
+    day_stem, day_branch = get_day_ganzhi(birth_date)
+    element = STEM_ELEMENT[day_stem]
+
+    hour_text = ""
+    if st.session_state.birth_time:
+        hour_stem, hour_branch = get_hour_ganzhi(day_stem, st.session_state.birth_time)
+        hour_element = STEM_ELEMENT[hour_stem]
+        hour_text = f"<br>{ELEMENT_EMOJI[hour_element]} <b>시주: {hour_stem}{hour_branch}({hour_element})</b>"
+
+    st.markdown(f"""
+    <div class="lucky-box">
+        {ELEMENT_EMOJI[element]} <b>일주: {day_stem}{day_branch}({element})</b>{hour_text}<br>
+        <span style="font-size:0.9rem;">{ELEMENT_DESC[element]}</span>
+    </div>
+    """, unsafe_allow_html=True)
+
     if st.button(persona["button_label"], use_container_width=True):
         st.session_state.step = 4
         st.rerun()
@@ -1567,7 +1666,7 @@ elif st.session_state.step == 3:
 elif st.session_state.step == 4:
     zodiac = get_zodiac(st.session_state.birth_year)
     birth_date = date(st.session_state.birth_year, st.session_state.birth_month, st.session_state.birth_day)
-    seed_str = f"{st.session_state.persona_id}-{st.session_state.user_name}-{st.session_state.gender}-{birth_date}-{date.today()}"
+    seed_str = f"{st.session_state.persona_id}-{st.session_state.user_name}-{st.session_state.gender}-{birth_date}-{st.session_state.birth_time}-{date.today()}"
     random.seed(seed_str)
 
     total_luck = 0
