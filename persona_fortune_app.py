@@ -1746,7 +1746,7 @@ elif st.session_state.step == 4:
         "애정운": ("💕", "🌹"),
         "재물운": ("💰", "🪙"),
         "건강운": ("🌿", "💪"),
-        "인간관계운": ("🤝", "👥"),
+        "인간관계운": ("🤝", "🫂"),
     }
     active_pool = PERSONA_FORTUNE.get(st.session_state.persona_id, fortune_pool)
     for cat in categories:
