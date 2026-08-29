@@ -11,9 +11,6 @@ TOSS_LINK = "https://toss.me/여기에_본인_토스_쉐어링크"
 
 st.set_page_config(page_title="운세 캐릭터관", page_icon="🔮", layout="centered")
 
-# ------------------------------
-# 커스텀 스타일 (차분한 차콜 + 웜 골드 톤, 어떤 캐릭터를 골라도 무난하게 어울림)
-# ------------------------------
 st.markdown("""
 <style>
     .stApp {
@@ -21,82 +18,56 @@ st.markdown("""
     }
     .main-title {
         text-align: center;
-        font-size: 2.2rem;
+        font-size: 2rem;
         font-weight: 800;
         background: linear-gradient(90deg, #f9d976, #f39f86, #c99df0);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 0.2rem;
-    }
-    .sub-caption {
-        text-align: center;
-        color: #cbb8d8;
-        margin-bottom: 1.6rem;
-    }
-    .persona-card {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 22px;
-        padding: 26px;
-        text-align: center;
         margin-bottom: 1.2rem;
     }
     .persona-avatar {
-        font-size: 3.2rem;
-        width: 88px;
-        height: 88px;
-        line-height: 88px;
+        font-size: 3.6rem;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
         border-radius: 50%;
-        margin: 0 auto 12px auto;
+        margin: 0 auto 14px auto;
+        text-align: center;
     }
     .persona-name {
-        font-size: 1.3rem;
+        text-align: center;
+        font-size: 1.2rem;
         font-weight: 800;
         color: #f9d976;
-        margin-bottom: 2px;
+        margin-bottom: 18px;
     }
-    .persona-subtitle {
-        font-size: 0.85rem;
-        color: #a89bb5;
-        margin-bottom: 14px;
-    }
-    .persona-speech {
+    .speech-bubble {
         background: rgba(255,255,255,0.06);
-        border-radius: 16px;
-        padding: 16px 18px;
-        font-size: 1rem;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 18px;
+        padding: 20px 22px;
+        font-size: 1.05rem;
         color: #f0eaff;
-        line-height: 1.6;
-        text-align: left;
+        line-height: 1.65;
+        margin-bottom: 24px;
     }
     .fortune-card {
         background: rgba(255,255,255,0.05);
         border: 1px solid rgba(255,255,255,0.12);
         border-radius: 20px;
-        padding: 24px;
-        margin-top: 14px;
-        margin-bottom: 14px;
+        padding: 22px;
+        margin-bottom: 12px;
     }
     .fortune-cat-title {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-weight: 700;
         color: #f9d976;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
     }
     .fortune-cat-text {
-        font-size: 1rem;
+        font-size: 0.98rem;
         color: #f0eaff;
         line-height: 1.6;
-    }
-    .closing-box {
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 16px;
-        padding: 18px;
-        text-align: center;
-        color: #f5f0ff;
-        font-style: italic;
-        margin: 18px 0;
     }
     .lucky-box {
         background: rgba(255,255,255,0.06);
@@ -105,7 +76,14 @@ st.markdown("""
         padding: 16px;
         text-align: center;
         color: #f5f0ff;
-        margin-bottom: 18px;
+        margin: 16px 0;
+    }
+    .progress-dots {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #a89bb5;
+        font-size: 0.85rem;
+        letter-spacing: 3px;
     }
     div[data-testid="stButton"] button {
         background: linear-gradient(90deg, #f9d976, #c99df0);
@@ -164,83 +142,111 @@ st.markdown("""
 
 # ------------------------------
 # 캐릭터 페르소나 10종
+# 각 페르소나: 인사말 / 이름 질문 / 이름 리액션 / 생년 리액션 / 버튼 문구 / 마무리 멘트
 # ------------------------------
 PERSONAS = {
     "mz_shaman": {
         "name": "MZ 여자무당", "emoji": "🔮", "color": "#ff6ec7",
-        "subtitle": "반말 + 텐션 폭발, 신기 충만",
         "greeting": "안뇽! 나 지금 좀 신기 올라와서ㅋㅋ 몇 개만 물어볼게!",
+        "ask_name": "너 이름이 뭐야?",
+        "react_name": lambda n: f"{n}?ㅋㅋ 이름 딱 좋다! 느낌 온다ㅋㅋ" if n else "음... 익명으로 봐줄게ㅋㅋ",
+        "ask_year": "생년월일도 알려줘! 몇 년생이야?",
+        "react_birth": lambda z: f"오 {z}띠구나! 그럼 이제 진짜 신내림 받아볼게~",
         "button_label": "운세 보여줄게 🔮",
         "closing": "이거 완전 찐이니까 믿어봐ㅋㅋ 오늘 대박나길!",
     },
     "tarot_master": {
         "name": "신비로운 타로 마스터", "emoji": "🃏", "color": "#7b5ea7",
-        "subtitle": "진중하고 묘한 존댓말",
         "greeting": "카드가 당신을 기다리고 있습니다. 조용히 마음을 가라앉히고, 오늘의 운명을 들여다보겠습니다.",
+        "ask_name": "성함을 말씀해주시겠습니까?",
+        "react_name": lambda n: f"{n}... 좋은 이름입니다. 카드가 그 이름을 기억하겠군요." if n else "이름을 밝히지 않으셔도 좋습니다. 익명의 기운도 읽을 수 있으니까요.",
+        "ask_year": "생년월일을 알려주십시오.",
+        "react_birth": lambda z: f"{z}띠의 기운이군요. 카드를 준비하겠습니다.",
         "button_label": "카드를 펼치겠습니다 🃏",
         "closing": "카드는 거짓말을 하지 않습니다. 오늘 하루, 이 흐름을 마음에 새기시길.",
     },
     "grandma_shaman": {
         "name": "따뜻한 할머니 무당", "emoji": "🍵", "color": "#d98e5f",
-        "subtitle": "포근한 사투리, 정겨움",
         "greeting": "아이고 왔능가~ 할미가 오늘 하루 봐줄 텡께 이리 앉아보소.",
+        "ask_name": "이름이 뭐라고 혔지?",
+        "react_name": lambda n: f"{n}이여? 이름도 참 이쁘네." if n else "이름 안 갈쳐줘도 괜찮여~",
+        "ask_year": "언제 태어났능가? 생년월일 좀 알려주소.",
+        "react_birth": lambda z: f"{z}띠구먼. 잠깐만 기다려보소, 할미가 봐줄텡께.",
         "button_label": "어디 한번 봐줄게 🍵",
         "closing": "괜찮혀, 다 잘 될 거여. 오늘 하루도 애썼다잉.",
     },
     "baby_fox": {
         "name": "말랑말랑 아기여우", "emoji": "🦊", "color": "#ff9662",
-        "subtitle": "귀엽고 발랄한 반말",
         "greeting": "안녕! 나는 숲속 아기여우야! 오늘 네 운세, 내가 콕콕 짚어줄게!",
+        "ask_name": "너 이름이 뭐야? 알려줘!",
+        "react_name": lambda n: f"{n}! 이름 완전 예쁘다!!" if n else "이름 없어도 괜찮아! 그냥 봐줄게!",
+        "ask_year": "언제 태어났어? 생년월일 알려줘!",
+        "react_birth": lambda z: f"우와 {z}띠야?! 완전 신기하다! 잠깐만 기다려봐!",
         "button_label": "운세 찾아올게 🦊",
         "closing": "히히, 오늘도 럭키하게 보내! 나중에 또 놀러와~",
     },
     "fortune_master40": {
         "name": "40대 역술인", "emoji": "🎋", "color": "#4a6fa5",
-        "subtitle": "진중하고 신뢰감 있는 존댓말",
         "greeting": "어서 오십시오. 사주를 오래 봐온 사람으로서, 오늘 하루의 기운을 차분히 짚어드리겠습니다.",
+        "ask_name": "성함이 어떻게 되십니까?",
+        "react_name": lambda n: f"{n} 님이시군요. 잘 알겠습니다." if n else "성함은 말씀 안 하셔도 무방합니다.",
+        "ask_year": "생년월일을 말씀해주시죠.",
+        "react_birth": lambda z: f"{z}띠시군요. 사주를 짚어보겠습니다.",
         "button_label": "사주를 풀어드리겠습니다 🎋",
         "closing": "오늘 말씀드린 내용, 참고 삼아 하루를 보내시면 좋겠습니다.",
     },
     "joseon_monk": {
         "name": "조선시대 승려", "emoji": "📿", "color": "#8a7355",
-        "subtitle": "고풍스러운 말투, 지혜로움",
         "greeting": "나무관세음보살. 그대의 발걸음이 이곳에 닿은 것도 인연이니, 오늘의 기운을 살펴보겠소.",
+        "ask_name": "그대의 이름은 무엇이오?",
+        "react_name": lambda n: f"{n}이라, 좋은 이름을 가지셨소." if n else "이름을 밝히지 않아도 무방하오.",
+        "ask_year": "태어난 해와 날을 알려주시오.",
+        "react_birth": lambda z: f"{z}띠이시구려. 잠시 기다려보시오.",
         "button_label": "기운을 살펴보겠소 📿",
         "closing": "모든 것은 마음먹기에 달렸소. 부디 평안한 하루 되시오.",
     },
     "fox_spirit": {
         "name": "여우신령", "emoji": "🌙", "color": "#9b59b6",
-        "subtitle": "신비롭고 우아한 존댓말",
         "greeting": "안녕하신가, 인간이여. 나는 오랜 세월을 살아온 여우니라. 그대의 오늘을 잠시 들여다보겠네.",
+        "ask_name": "그대의 이름을 말해보게.",
+        "react_name": lambda n: f"{n}이라... 기억해두겠네." if n else "이름은 중요치 않네, 그저 기운을 보면 되니.",
+        "ask_year": "태어난 해와 날을 알려주게.",
+        "react_birth": lambda z: f"{z}띠의 기운을 타고났군. 곧 알려주겠네.",
         "button_label": "기운을 읽어보겠네 🌙",
         "closing": "오늘의 이야기는 여기까지. 부디 지혜롭게 하루를 걸으시게.",
     },
     "cat_sage": {
         "name": "고양이도사", "emoji": "🐱", "color": "#f4a460",
-        "subtitle": "새침하지만 다 알고 있는 반말",
         "greeting": "냥. 오늘 운세가 궁금해서 온 게냥? 뭐, 어쩔 수 없이 봐주지 냥.",
+        "ask_name": "이름이 뭐냥?",
+        "react_name": lambda n: f"{n}냥? 흥, 기억해두겠다냥." if n else "이름 안 갈쳐줘도 상관없다냥.",
+        "ask_year": "생년월일 대라냥.",
+        "react_birth": lambda z: f"{z}띠라니, 흥미롭다냥. 잠깐 기다리라냥.",
         "button_label": "봐주겠다냥 🐱",
         "closing": "흥, 도움 됐으면 다행이다냥. 다음에 또 오라냥.",
     },
     "mz_saju_girl": {
         "name": "MZ 사주소녀", "emoji": "✨", "color": "#ff6b9d",
-        "subtitle": "트렌디하고 발랄한 반말",
         "greeting": "얘들아 나 요즘 사주에 완전 꽂혀서 취미로 봐주고 있엉! 너두 궁금하지? ㅎㅎ",
+        "ask_name": "이름 뭐야?? 궁금해!",
+        "react_name": lambda n: f"{n}?? 완전 예쁜 이름이잖앙!!" if n else "이름 비밀이어도 오케이!",
+        "ask_year": "생년월일 알려줘! 몇 년생이야?",
+        "react_birth": lambda z: f"헐 {z}띠야? 완전 대박! 잠깐만!",
         "button_label": "운세 뽑아볼게 ✨",
         "closing": "완전 힐링됐지? 오늘도 화이팅!! 저장하고 또 놀러와~",
     },
     "saju_witch": {
         "name": "사주마녀", "emoji": "🕸", "color": "#5c2a5c",
-        "subtitle": "드라마틱하고 능청스러운 말투",
         "greeting": "후후... 마녀의 솥이 오늘도 부글부글 끓고 있군요. 당신의 운명을 한번 저어볼까요?",
+        "ask_name": "이름을 말해보세요, 솥에 넣어드리죠.",
+        "react_name": lambda n: f"{n}... 흥미로운 이름이군요. 솥에 넣어보죠." if n else "이름이 없어도, 마녀는 다 알아낸답니다.",
+        "ask_year": "태어난 날짜를 말해보세요.",
+        "react_birth": lambda z: f"{z}띠라... 재미있는 재료가 되겠어요.",
         "button_label": "운명을 저어보겠어요 🕸",
         "closing": "오늘 점괘는 여기까지예요. 방심은 금물, 재미는 필수랍니다.",
     },
 }
 
-# ------------------------------
-# 띠(십이지) 계산
-# ------------------------------
 ZODIAC_ORDER = ["쥐", "소", "호랑이", "토끼", "용", "뱀", "말", "양", "원숭이", "닭", "개", "돼지"]
 ZODIAC_EMOJI = {
     "쥐": "🐭", "소": "🐮", "호랑이": "🐯", "토끼": "🐰", "용": "🐲", "뱀": "🐍",
@@ -252,9 +258,6 @@ def get_zodiac(year: int) -> str:
     return ZODIAC_ORDER[(year - 1924) % 12]
 
 
-# ------------------------------
-# 카테고리별 운세 문구 풀
-# ------------------------------
 fortune_pool = {
     "총운": [
         "오전엔 다소 흐릿하던 흐름이 오후 들어 또렷해지며, 미뤄왔던 결정을 내리기 좋은 타이밍이 찾아옵니다.",
@@ -304,56 +307,119 @@ lucky_numbers = list(range(1, 46))
 lucky_times = ["오전 9시~11시", "정오~오후 1시", "오후 3시~5시", "저녁 7시~9시", "밤 9시 이후"]
 
 # ------------------------------
-# 화면 구성
+# 상태 초기화
 # ------------------------------
-st.markdown('<div class="main-title">🔮 운세 캐릭터관</div>', unsafe_allow_html=True)
-st.markdown(f'<div class="sub-caption">{date.today().strftime("%Y년 %m월 %d일")} · 원하는 캐릭터를 골라보세요</div>', unsafe_allow_html=True)
+if "persona_id" not in st.session_state:
+    st.session_state.persona_id = "mz_shaman"
+if "step" not in st.session_state:
+    st.session_state.step = 0
+if "user_name" not in st.session_state:
+    st.session_state.user_name = ""
+if "birth_year" not in st.session_state:
+    st.session_state.birth_year = 1995
+if "birth_month" not in st.session_state:
+    st.session_state.birth_month = 1
+if "birth_day" not in st.session_state:
+    st.session_state.birth_day = 1
 
-persona_id = st.selectbox(
+st.markdown('<div class="main-title">🔮 운세 캐릭터관</div>', unsafe_allow_html=True)
+
+# 캐릭터 선택 (언제든 변경 가능 -> 바꾸면 처음부터 다시 시작)
+new_persona_id = st.selectbox(
     "캐릭터 선택",
     list(PERSONAS.keys()),
+    index=list(PERSONAS.keys()).index(st.session_state.persona_id),
     format_func=lambda k: f"{PERSONAS[k]['emoji']} {PERSONAS[k]['name']}",
     label_visibility="collapsed",
 )
-persona = PERSONAS[persona_id]
+if new_persona_id != st.session_state.persona_id:
+    st.session_state.persona_id = new_persona_id
+    st.session_state.step = 0
+    st.rerun()
+
+persona = PERSONAS[st.session_state.persona_id]
 
 st.markdown(f"""
-<div class="persona-card">
-    <div class="persona-avatar" style="background:{persona['color']}33; border:2px solid {persona['color']};">
-        {persona['emoji']}
-    </div>
-    <div class="persona-name">{persona['name']}</div>
-    <div class="persona-subtitle">{persona['subtitle']}</div>
-    <div class="persona-speech">{persona['greeting']}</div>
+<div class="persona-avatar" style="background:{persona['color']}33; border:2px solid {persona['color']};">
+    {persona['emoji']}
 </div>
+<div class="persona-name">{persona['name']}</div>
 """, unsafe_allow_html=True)
 
-name = st.text_input("이름 (선택)", placeholder="예: 인수")
+TOTAL_STEPS = 5
+dots = "".join("●" if i <= st.session_state.step else "○" for i in range(TOTAL_STEPS))
+st.markdown(f'<div class="progress-dots">{dots}</div>', unsafe_allow_html=True)
 
-current_year = date.today().year
-year_options = list(range(current_year, 1929, -1))
-col_y, col_m, col_d = st.columns(3)
-with col_y:
-    birth_year = st.selectbox("출생연도", year_options, index=year_options.index(1995))
-with col_m:
-    birth_month = st.selectbox("출생월", list(range(1, 13)), index=0)
-with col_d:
-    birth_day = st.selectbox("출생일", list(range(1, 32)), index=0)
+# ------------------------------
+# STEP 0: 인사
+# ------------------------------
+if st.session_state.step == 0:
+    st.markdown(f'<div class="speech-bubble">{persona["greeting"]}</div>', unsafe_allow_html=True)
+    if st.button("다음 →", use_container_width=True):
+        st.session_state.step = 1
+        st.rerun()
 
-try:
-    birth_date = date(birth_year, birth_month, birth_day)
-except ValueError:
-    st.warning("존재하지 않는 날짜예요. 날짜를 다시 확인해주세요 (예: 2월 30일 X)")
-    st.stop()
+# ------------------------------
+# STEP 1: 이름
+# ------------------------------
+elif st.session_state.step == 1:
+    st.markdown(f'<div class="speech-bubble">{persona["ask_name"]}</div>', unsafe_allow_html=True)
+    name_input = st.text_input("이름 (선택)", value=st.session_state.user_name, placeholder="예: 인수", label_visibility="collapsed")
+    if st.button("다음 →", use_container_width=True):
+        st.session_state.user_name = name_input
+        st.session_state.step = 2
+        st.rerun()
 
-zodiac = get_zodiac(birth_year)
-st.markdown(
-    f'<div class="sub-caption">{ZODIAC_EMOJI[zodiac]} {birth_year}년생 · <b>{zodiac}띠</b></div>',
-    unsafe_allow_html=True,
-)
+# ------------------------------
+# STEP 2: 생년월일
+# ------------------------------
+elif st.session_state.step == 2:
+    reaction = persona["react_name"](st.session_state.user_name)
+    st.markdown(f'<div class="speech-bubble">{reaction}<br><br>{persona["ask_year"]}</div>', unsafe_allow_html=True)
 
-if st.button(persona["button_label"], use_container_width=True):
-    seed_str = f"{persona_id}-{name}-{birth_date}-{date.today()}"
+    current_year = date.today().year
+    year_options = list(range(current_year, 1929, -1))
+    col_y, col_m, col_d = st.columns(3)
+    with col_y:
+        by = st.selectbox("연도", year_options, index=year_options.index(st.session_state.birth_year))
+    with col_m:
+        bm = st.selectbox("월", list(range(1, 13)), index=st.session_state.birth_month - 1)
+    with col_d:
+        bd = st.selectbox("일", list(range(1, 32)), index=st.session_state.birth_day - 1)
+
+    if st.button("다음 →", use_container_width=True):
+        try:
+            date(by, bm, bd)
+        except ValueError:
+            st.warning("존재하지 않는 날짜예요. 다시 확인해주세요.")
+            st.stop()
+        st.session_state.birth_year = by
+        st.session_state.birth_month = bm
+        st.session_state.birth_day = bd
+        st.session_state.step = 3
+        st.rerun()
+
+# ------------------------------
+# STEP 3: 생년월일 확인 + 운세 뽑기 유도
+# ------------------------------
+elif st.session_state.step == 3:
+    zodiac = get_zodiac(st.session_state.birth_year)
+    reaction = persona["react_birth"](zodiac)
+    st.markdown(
+        f'<div class="speech-bubble">{ZODIAC_EMOJI[zodiac]} {reaction}</div>',
+        unsafe_allow_html=True,
+    )
+    if st.button(persona["button_label"], use_container_width=True):
+        st.session_state.step = 4
+        st.rerun()
+
+# ------------------------------
+# STEP 4: 결과
+# ------------------------------
+elif st.session_state.step == 4:
+    zodiac = get_zodiac(st.session_state.birth_year)
+    birth_date = date(st.session_state.birth_year, st.session_state.birth_month, st.session_state.birth_day)
+    seed_str = f"{st.session_state.persona_id}-{st.session_state.user_name}-{birth_date}-{date.today()}"
     random.seed(seed_str)
 
     total_luck = 0
@@ -381,7 +447,7 @@ if st.button(persona["button_label"], use_container_width=True):
         행운의 색: <b>{color}</b> &nbsp;|&nbsp; 행운의 아이템: <b>{item}</b><br>
         행운의 숫자: <b>{number}</b> &nbsp;|&nbsp; 행운의 시간대: <b>{time_range}</b>
     </div>
-    <div class="closing-box">{persona['emoji']} {persona['closing']}</div>
+    <div class="speech-bubble">{persona['emoji']} {persona['closing']}</div>
     """, unsafe_allow_html=True)
 
     st.markdown("### 🎁 오늘의 운세를 더 좋게 만들어줄 아이템")
@@ -420,5 +486,6 @@ if st.button(persona["button_label"], use_container_width=True):
     </script>
     """, height=60)
 
-else:
-    st.info(f"{persona['emoji']} 정보를 입력하고 버튼을 눌러 {persona['name']}의 운세를 확인해보세요!")
+    if st.button("🔄 처음부터 다시하기", use_container_width=True):
+        st.session_state.step = 0
+        st.rerun()
