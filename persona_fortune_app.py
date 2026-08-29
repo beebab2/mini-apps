@@ -160,6 +160,12 @@ PERSONAS = {
             <path d="M30 100 C33 84 40 74 50 74 C60 74 67 84 70 100 Z" fill="#7a1f2b"/>
             <rect x="44" y="56" width="12" height="14" rx="4" fill="#f3d9c0"/>
             <circle cx="50" cy="44" r="19" fill="#f3d9c0"/>
+            <ellipse cx="43" cy="43" rx="2.6" ry="1.8" fill="#1a1a1a"/>
+            <ellipse cx="57" cy="43" rx="2.6" ry="1.8" fill="#1a1a1a"/>
+            <path d="M39 39 Q43 36.5 47 38" stroke="#1a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M53 38 Q57 36.5 61 39" stroke="#1a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M50 45 L48.5 50 Q50 51.2 51.5 50" stroke="#d8ac86" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M44 55 Q50 59 56 55" stroke="#a83246" stroke-width="2.2" fill="none" stroke-linecap="round"/>
             <path d="M27 40 Q25 70 33 82 L38 78 Q32 60 33 42 Z" fill="#141414"/>
             <path d="M73 40 Q75 70 67 82 L62 78 Q68 60 67 42 Z" fill="#141414"/>
             <path d="M29 34 Q50 16 71 34 Q69 24 50 20 Q31 24 29 34 Z" fill="#141414"/>
@@ -188,7 +194,11 @@ PERSONAS = {
             <path d="M15 100 C15 75 32 68 50 68 C68 68 85 75 85 100 Z" fill="#4b2e83"/>
             <path d="M38 100 C39 82 44 72 50 72 C56 72 61 82 62 100 Z" fill="#7b5ea7"/>
             <circle cx="50" cy="45" r="17" fill="#f0d5b8"/>
+            <ellipse cx="44" cy="44" rx="2.2" ry="1.6" fill="#2b2b2b"/>
+            <ellipse cx="56" cy="44" rx="2.2" ry="1.6" fill="#2b2b2b"/>
+            <path d="M50 46 L49 51 Q50 52.2 51 51" stroke="#c9a87a" stroke-width="1" fill="none" stroke-linecap="round"/>
             <path d="M35 50 Q50 78 65 50 Q58 62 50 64 Q42 62 35 50 Z" fill="#e8e8e8"/>
+            <path d="M45 55 Q50 58 55 55" stroke="#8a7050" stroke-width="1.4" fill="none" stroke-linecap="round"/>
             <path d="M38 40 Q43 36 47 39" stroke="#d8d8d8" stroke-width="2" fill="none" stroke-linecap="round"/>
             <path d="M53 39 Q57 36 62 40" stroke="#d8d8d8" stroke-width="2" fill="none" stroke-linecap="round"/>
             <path d="M28 34 Q50 -8 72 34 Q50 26 28 34 Z" fill="#4b2e83"/>
