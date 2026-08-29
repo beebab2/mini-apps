@@ -156,7 +156,12 @@ st.markdown("""
     }
     div[data-testid="stLinkButton"] a {
         border-radius: 30px !important;
-        font-weight: 600 !important;
+        font-weight: 800 !important;
+        font-size: 1.05rem !important;
+        padding: 14px 10px !important;
+        color: #ffffff !important;
+        background: linear-gradient(90deg, #ff9d4d, #ff5e3a) !important;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.35) !important;
     }
     [data-testid="stCaptionContainer"] p, .stCaption {
         color: #cbb8d8 !important;
