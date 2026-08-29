@@ -25,7 +25,7 @@ st.markdown("""
         text-align: center;
         font-size: 2.4rem;
         font-weight: 800;
-        background: linear-gradient(90deg, #c9a468, #b8869a);
+        background: linear-gradient(90deg, #6ba3c9, #4a7fa5);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 0px;
@@ -33,14 +33,14 @@ st.markdown("""
     }
     .sub-caption {
         text-align: center;
-        color: #9c8f80;
+        color: #7a94a3;
         margin-bottom: 1.5rem;
         letter-spacing: 0.5px;
     }
     .zodiac-badge {
         text-align: center;
         font-size: 1.05rem;
-        color: #b8869a;
+        color: #4a7fa5;
         font-weight: 600;
         margin-bottom: 1rem;
     }
@@ -56,29 +56,29 @@ st.markdown("""
     .fortune-cat-title {
         font-size: 1.1rem;
         font-weight: 700;
-        color: #b8869a;
+        color: #4a7fa5;
         margin-bottom: 6px;
         letter-spacing: -0.2px;
     }
     .fortune-cat-text {
         font-size: 1rem;
-        color: #5c5147;
+        color: #3a4a56;
         line-height: 1.65;
         margin-bottom: 4px;
     }
     .lucky-box {
-        background: #fdfbf7;
+        background: #f4f9fc;
         border: 1px solid #d5e6f0;
         border-radius: 16px;
         padding: 18px;
         text-align: center;
-        color: #5c5147;
+        color: #3a4a56;
         font-weight: 500;
         margin-bottom: 18px;
         line-height: 1.8;
     }
     div[data-testid="stButton"] button {
-        background: linear-gradient(90deg, #c9a468, #b8869a);
+        background: linear-gradient(90deg, #6ba3c9, #4a7fa5);
         color: #ffffff;
         font-weight: 700;
         border-radius: 30px;
@@ -93,22 +93,22 @@ st.markdown("""
     }
     [data-testid="stCaptionContainer"] p,
     .stCaption {
-        color: #9c8f80 !important;
+        color: #7a94a3 !important;
         opacity: 1 !important;
     }
     label, .stSlider label {
-        color: #9c8f80 !important;
+        color: #7a94a3 !important;
         font-weight: 500;
     }
     .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
     .stMarkdown h4, .stMarkdown h5, .stMarkdown h6,
     .stMarkdown p {
-        color: #4a4038 !important;
+        color: #2e3d47 !important;
         opacity: 1 !important;
     }
     div[data-testid="stTextInput"] input {
         background: #ffffff !important;
-        color: #4a4038 !important;
+        color: #2e3d47 !important;
         border: 1px solid #d5e6f0 !important;
         border-radius: 12px !important;
     }
@@ -202,19 +202,19 @@ st.markdown("""
         <defs>
             <radialGradient id="ballGrad" cx="35%" cy="30%" r="70%">
                 <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="45%" stop-color="#e8d5b8"/>
-                <stop offset="100%" stop-color="#b8869a"/>
+                <stop offset="45%" stop-color="#bfe0f0"/>
+                <stop offset="100%" stop-color="#4a7fa5"/>
             </radialGradient>
             <linearGradient id="standGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#c9a468"/>
-                <stop offset="100%" stop-color="#a5824a"/>
+                <stop offset="0%" stop-color="#6ba3c9"/>
+                <stop offset="100%" stop-color="#3d6d94"/>
             </linearGradient>
         </defs>
-        <circle cx="32" cy="27" r="20" fill="url(#ballGrad)" stroke="#c9a468" stroke-width="1.5"/>
+        <circle cx="32" cy="27" r="20" fill="url(#ballGrad)" stroke="#6ba3c9" stroke-width="1.5"/>
         <ellipse cx="25" cy="19" rx="6" ry="4" fill="#ffffff" opacity="0.7"/>
         <path d="M16 50 Q32 42 48 50 L52 58 Q32 52 12 58 Z" fill="url(#standGrad)"/>
-        <path d="M8 8 l2.2 5.2 L15.4 15.4 l-5.2 2.2 L8 22.8 l-2.2-5.2 L0.6 15.4 l5.2-2.2 Z" fill="#c9a468"/>
-        <path d="M53 6 l1.6 3.8 3.8 1.6 -3.8 1.6 -1.6 3.8 -1.6-3.8 -3.8-1.6 3.8-1.6 Z" fill="#b8869a"/>
+        <path d="M8 8 l2.2 5.2 L15.4 15.4 l-5.2 2.2 L8 22.8 l-2.2-5.2 L0.6 15.4 l5.2-2.2 Z" fill="#6ba3c9"/>
+        <path d="M53 6 l1.6 3.8 3.8 1.6 -3.8 1.6 -1.6 3.8 -1.6-3.8 -3.8-1.6 3.8-1.6 Z" fill="#4a7fa5"/>
     </svg>
     <span>오늘의 운세</span>
 </div>
