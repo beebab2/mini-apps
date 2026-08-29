@@ -163,17 +163,17 @@ st.markdown("""
         animation: fadeInUp 0.6s ease-out 0.2s both;
     }
     .fortune-card {
-        background: rgba(255, 250, 235, 0.92);
-        border: 1px solid rgba(201, 164, 104, 0.4);
+        background: rgba(240, 197, 110, 0.92);
+        border: 1px solid rgba(180, 130, 40, 0.5);
         border-radius: 20px;
         padding: 22px;
         margin-bottom: 12px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.3);
     }
     .fortune-cat-title {
         font-size: 1.05rem;
-        font-weight: 700;
-        color: #b8791d;
+        font-weight: 800;
+        color: #5c3d0e;
         margin-bottom: 4px;
     }
     .fortune-cat-text {
