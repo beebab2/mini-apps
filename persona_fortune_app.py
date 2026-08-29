@@ -138,7 +138,7 @@ st.markdown("""
     }
     .showcase-caption {
         text-align: center;
-        color: #a89bb5;
+        color: #7dd490;
         font-size: 0.85rem;
         margin-bottom: 1rem;
     }
