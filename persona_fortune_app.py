@@ -154,24 +154,24 @@ st.markdown("""
 # ------------------------------
 PERSONAS = {
     "mz_shaman": {
-        "name": "MZ 여자무당", "emoji": "🔮", "color": "#ff6ec7",
+        "name": "MZ 여자무당", "emoji": "🔪", "color": "#b5283b",
         "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 100 C12 78 30 66 50 66 C70 66 88 78 88 100 Z" fill="#ff6ec7"/>
-            <path d="M30 100 C32 84 40 72 50 72 C60 72 68 84 70 100 Z" fill="#fff0f5"/>
-            <path d="M42 100 C43 88 46 78 50 78 C54 78 57 88 58 100 Z" fill="#6ec1ff"/>
-            <rect x="44" y="55" width="12" height="14" rx="4" fill="#ffdbac"/>
-            <circle cx="50" cy="42" r="20" fill="#ffdbac"/>
-            <path d="M30 36 Q50 18 70 36 Q68 24 50 20 Q32 24 30 36 Z" fill="#231710"/>
-            <path d="M28 40 Q24 55 30 62 Q26 48 30 38 Z" fill="#231710"/>
-            <path d="M72 40 Q76 55 70 62 Q74 48 70 38 Z" fill="#231710"/>
-            <circle cx="50" cy="16" r="7" fill="#231710"/>
-            <rect x="45" y="7" width="10" height="7" rx="2" fill="#1a1a1a"/>
-            <circle cx="50" cy="8" r="2.4" fill="#ff4d4d"/>
-            <g transform="translate(74,55) rotate(-25)">
-                <path d="M0 0 L18 -6 L20 2 L2 8 Z" fill="#ffe066"/>
-                <path d="M0 0 L18 -6" stroke="#e0b800" stroke-width="1"/>
-                <path d="M0 0 L20 2" stroke="#e0b800" stroke-width="1"/>
-                <line x1="0" y1="0" x2="-6" y2="6" stroke="#8a5a2b" stroke-width="2"/>
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#1c1c1c"/>
+            <path d="M30 100 C33 84 40 74 50 74 C60 74 67 84 70 100 Z" fill="#7a1f2b"/>
+            <rect x="44" y="56" width="12" height="14" rx="4" fill="#f3d9c0"/>
+            <circle cx="50" cy="44" r="19" fill="#f3d9c0"/>
+            <path d="M27 40 Q25 70 33 82 L38 78 Q32 60 33 42 Z" fill="#141414"/>
+            <path d="M73 40 Q75 70 67 82 L62 78 Q68 60 67 42 Z" fill="#141414"/>
+            <path d="M29 34 Q50 16 71 34 Q69 24 50 20 Q31 24 29 34 Z" fill="#141414"/>
+            <ellipse cx="50" cy="26" rx="30" ry="7" fill="#0d0d0d"/>
+            <path d="M38 26 Q50 8 62 26 Z" fill="#0d0d0d"/>
+            <circle cx="50" cy="22" r="6" fill="#c9a15a"/>
+            <circle cx="50" cy="22" r="6" fill="none" stroke="#8a6a34" stroke-width="1"/>
+            <g transform="translate(50,72)">
+                <path d="M-22 14 L4 -14 L8 -10 L-18 18 Z" fill="#d8d8d8" stroke="#9a9a9a" stroke-width="0.5"/>
+                <path d="M22 14 L-4 -14 L-8 -10 L18 18 Z" fill="#d8d8d8" stroke="#9a9a9a" stroke-width="0.5"/>
+                <circle cx="-22" cy="14" r="3" fill="#c0392b"/>
+                <circle cx="22" cy="14" r="3" fill="#c0392b"/>
             </g>
         </svg>''',
         "greeting": "안뇽! 나 지금 좀 신기 올라와서ㅋㅋ 몇 개만 물어볼게!",
