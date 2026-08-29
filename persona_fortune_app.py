@@ -295,6 +295,13 @@ st.markdown("""
     }
     div[data-baseweb="select"] span { color: #f5f0ff !important; }
     div[data-baseweb="select"] svg { fill: #f9d976 !important; }
+    div[data-testid="stRadio"] label {
+        color: #f5f0ff !important;
+        font-weight: 600 !important;
+    }
+    div[data-testid="stRadio"] p {
+        color: #f5f0ff !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -1092,6 +1099,8 @@ if "step" not in st.session_state:
     st.session_state.step = 0
 if "user_name" not in st.session_state:
     st.session_state.user_name = ""
+if "gender" not in st.session_state:
+    st.session_state.gender = "여성"
 if "birth_year" not in st.session_state:
     st.session_state.birth_year = 1995
 if "birth_month" not in st.session_state:
@@ -1182,12 +1191,21 @@ if st.session_state.step == 0:
 elif st.session_state.step == 1:
     st.markdown(f'<div class="speech-bubble">{persona["ask_name"]}</div>', unsafe_allow_html=True)
     name_input = st.text_input("이름 (선택)", value=st.session_state.user_name, placeholder="예: 인수", label_visibility="collapsed")
+    gender_options = ["여성", "남성"]
+    gender_input = st.radio(
+        "성별",
+        gender_options,
+        index=gender_options.index(st.session_state.gender) if st.session_state.gender in gender_options else 0,
+        horizontal=True,
+    )
     if st.button("다음 →", use_container_width=True):
         st.session_state.user_name = name_input
+        st.session_state.gender = gender_input
         st.session_state.step = 2
         st.rerun()
     if st.button("← 이전", use_container_width=True):
         st.session_state.user_name = name_input
+        st.session_state.gender = gender_input
         st.session_state.step = 0
         st.rerun()
 
@@ -1249,7 +1267,7 @@ elif st.session_state.step == 3:
 elif st.session_state.step == 4:
     zodiac = get_zodiac(st.session_state.birth_year)
     birth_date = date(st.session_state.birth_year, st.session_state.birth_month, st.session_state.birth_day)
-    seed_str = f"{st.session_state.persona_id}-{st.session_state.user_name}-{birth_date}-{date.today()}"
+    seed_str = f"{st.session_state.persona_id}-{st.session_state.user_name}-{st.session_state.gender}-{birth_date}-{date.today()}"
     random.seed(seed_str)
 
     total_luck = 0
