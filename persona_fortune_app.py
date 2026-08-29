@@ -97,6 +97,7 @@ st.markdown("""
         width: 130px;
         height: 158px;
         margin: 0 auto 6px auto;
+        overflow: hidden;
     }
     .avatar-showcase-layer {
         position: absolute;
@@ -136,11 +137,11 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     @keyframes avatarShowcaseCycle {
-        0% { opacity: 0; transform: scale(0.9); }
-        3% { opacity: 1; transform: scale(1); }
-        9% { opacity: 1; transform: scale(1); }
-        10% { opacity: 0; transform: scale(0.9); }
-        100% { opacity: 0; }
+        0% { opacity: 0; transform: translateX(60px); }
+        2% { opacity: 1; transform: translateX(0); }
+        8% { opacity: 1; transform: translateX(0); }
+        10% { opacity: 0; transform: translateX(-60px); }
+        100% { opacity: 0; transform: translateX(60px); }
     }
     .speech-bubble {
         background: rgba(255,255,255,0.06);
