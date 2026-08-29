@@ -163,13 +163,25 @@ st.markdown("""
         animation: fadeInUp 0.6s ease-out 0.2s both;
     }
     .fortune-card {
+        position: relative;
         border-radius: 20px;
         padding: 22px;
+        padding-right: 76px;
         margin-bottom: 14px;
+        overflow: hidden;
         box-shadow:
             inset 0 1px 0 rgba(255,255,255,0.6),
             inset 0 -2px 6px rgba(0,0,0,0.06),
             0 8px 18px rgba(0,0,0,0.28);
+    }
+    .fortune-cat-icon {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        font-size: 2.6rem;
+        opacity: 0.9;
+        transform: rotate(8deg);
+        line-height: 1;
     }
     .fortune-cat-title {
         font-size: 1.05rem;
@@ -1715,6 +1727,13 @@ elif st.session_state.step == 4:
         "건강운": "fortune-card-health",
         "인간관계운": "fortune-card-relationship",
     }
+    category_icon = {
+        "총운": "🔮",
+        "애정운": "💕",
+        "재물운": "💰",
+        "건강운": "🌿",
+        "인간관계운": "🤝",
+    }
     active_pool = PERSONA_FORTUNE.get(st.session_state.persona_id, fortune_pool)
     for cat in categories:
         text = random.choice(active_pool[cat])
@@ -1722,6 +1741,7 @@ elif st.session_state.step == 4:
         total_luck += score
         st.markdown(f"""
         <div class="fortune-card {category_class[cat]}">
+            <div class="fortune-cat-icon">{category_icon[cat]}</div>
             <div class="fortune-cat-title">{cat} · {score}점</div>
             <div class="fortune-cat-text">{text}</div>
         </div>
