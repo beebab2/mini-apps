@@ -181,12 +181,12 @@ st.markdown("""
     }
     @media (max-width: 480px) {
         div[data-testid="stLinkButton"] a {
-            font-size: 1.6rem !important;
+            font-size: 1.35rem !important;
             padding: 20px 8px !important;
             line-height: 1.3 !important;
         }
         div[data-testid="stLinkButton"] a * {
-            font-size: 1.6rem !important;
+            font-size: 1.35rem !important;
         }
     }
     div[data-testid*="olumn"]:nth-of-type(2) div[data-testid="stLinkButton"] a,
