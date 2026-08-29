@@ -79,11 +79,12 @@ st.markdown("""
     }
     div[data-testid="stButton"] button {
         background: linear-gradient(90deg, #78ffd6, #a8ff78);
-        color: #0f2027;
-        font-weight: 700;
+        color: #05100f;
+        font-weight: 800;
+        font-size: 1.1rem;
         border-radius: 30px;
         border: none;
-        padding: 10px 28px;
+        padding: 12px 28px;
         width: 100%;
         text-align: center;
         display: flex;
@@ -93,6 +94,7 @@ st.markdown("""
     div[data-testid="stButton"] button p {
         text-align: center;
         width: 100%;
+        font-size: 1.1rem;
     }
     div[data-testid="stLinkButton"] a {
         border-radius: 30px !important;
