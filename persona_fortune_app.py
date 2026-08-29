@@ -92,6 +92,56 @@ st.markdown("""
         color: #f9d976;
         margin-bottom: 18px;
     }
+    .avatar-showcase {
+        position: relative;
+        width: 130px;
+        height: 158px;
+        margin: 0 auto 6px auto;
+    }
+    .avatar-showcase-layer {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        animation-name: avatarShowcaseCycle;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+    .avatar-showcase-icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.6rem;
+    }
+    .avatar-showcase-icon svg {
+        width: 72px;
+        height: 72px;
+    }
+    .avatar-showcase-name {
+        margin-top: 8px;
+        font-size: 1rem;
+        font-weight: 800;
+        color: #f9d976;
+    }
+    .showcase-caption {
+        text-align: center;
+        color: #a89bb5;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    @keyframes avatarShowcaseCycle {
+        0% { opacity: 0; transform: scale(0.9); }
+        3% { opacity: 1; transform: scale(1); }
+        9% { opacity: 1; transform: scale(1); }
+        10% { opacity: 0; transform: scale(0.9); }
+        100% { opacity: 0; }
+    }
     .speech-bubble {
         background: rgba(255,255,255,0.06);
         border: 1px solid rgba(255,255,255,0.15);
@@ -588,12 +638,32 @@ if new_persona_id != st.session_state.persona_id:
 persona = PERSONAS[st.session_state.persona_id]
 avatar_content = persona.get("avatar_svg", persona["emoji"])
 
-st.markdown(f"""
-<div class="persona-avatar" style="background:{persona['color']}33; border:2px solid {persona['color']};">
-    {avatar_content}
-</div>
-<div class="persona-name">{persona['name']}</div>
-""", unsafe_allow_html=True)
+if st.session_state.step == 0:
+    # 시작 화면에서는 10명의 캐릭터가 자동으로 순서대로 바뀌며 보여지는 미리보기 (2.2초 간격)
+    interval = 2.2
+    persona_items = list(PERSONAS.items())
+    n = len(persona_items)
+    duration = n * interval
+    layers_html = ""
+    for i, (pid, p) in enumerate(persona_items):
+        p_avatar = p.get("avatar_svg", p["emoji"])
+        delay = -(i * interval)
+        layers_html += f'''
+        <div class="avatar-showcase-layer" style="animation-duration:{duration}s; animation-delay:{delay}s;">
+            <div class="avatar-showcase-icon" style="background:{p['color']}33; border:2px solid {p['color']};">
+                {p_avatar}
+            </div>
+            <div class="avatar-showcase-name">{p['name']}</div>
+        </div>'''
+    st.markdown(f'<div class="avatar-showcase">{layers_html}</div>', unsafe_allow_html=True)
+    st.markdown('<div class="showcase-caption">✨ 10명의 캐릭터가 기다리고 있어요 ✨</div>', unsafe_allow_html=True)
+else:
+    st.markdown(f"""
+    <div class="persona-avatar" style="background:{persona['color']}33; border:2px solid {persona['color']};">
+        {avatar_content}
+    </div>
+    <div class="persona-name">{persona['name']}</div>
+    """, unsafe_allow_html=True)
 
 TOTAL_STEPS = 5
 dots = "".join("●" if i <= st.session_state.step else "○" for i in range(TOTAL_STEPS))
