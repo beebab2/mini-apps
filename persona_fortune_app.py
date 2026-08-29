@@ -137,11 +137,11 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     @keyframes avatarShowcaseCycle {
-        0% { opacity: 0; transform: translateX(60px); }
+        0% { opacity: 0; transform: translateX(140px); }
         2% { opacity: 1; transform: translateX(0); }
         8% { opacity: 1; transform: translateX(0); }
-        10% { opacity: 0; transform: translateX(-60px); }
-        100% { opacity: 0; transform: translateX(60px); }
+        10% { opacity: 0; transform: translateX(-140px); }
+        100% { opacity: 0; transform: translateX(140px); }
     }
     .speech-bubble {
         background: rgba(255,255,255,0.06);
@@ -641,7 +641,7 @@ avatar_content = persona.get("avatar_svg", persona["emoji"])
 
 if st.session_state.step == 0:
     # 시작 화면에서는 10명의 캐릭터가 자동으로 순서대로 바뀌며 보여지는 미리보기 (2.2초 간격)
-    interval = 2.2
+    interval = 3.5
     persona_items = list(PERSONAS.items())
     n = len(persona_items)
     duration = n * interval
