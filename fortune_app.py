@@ -208,10 +208,9 @@ st.markdown("""
         <path d="M53 6 l1.6 3.8 3.8 1.6 -3.8 1.6 -1.6 3.8 -1.6-3.8 -3.8-1.6 3.8-1.6 Z" fill="#f39f86"/>
     </svg>
     <span>오늘의 운세</span>
-    <span style="display:inline-block; width:60px; height:1px; visibility:hidden;"></span>
 </div>
 """, unsafe_allow_html=True)
-st.markdown(f'<div class="sub-caption">{date.today().strftime("%Y년 %m월 %d일")} 기준</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="sub-caption" style="margin-left:30px;">{date.today().strftime("%Y년 %m월 %d일")} 기준</div>', unsafe_allow_html=True)
 
 name = st.text_input("이름 (선택)", placeholder="예: 인수")
 
