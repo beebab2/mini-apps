@@ -872,7 +872,7 @@ if "birth_month" not in st.session_state:
 if "birth_day" not in st.session_state:
     st.session_state.birth_day = 1
 
-st.markdown('<div class="main-title">🔮 <span class="title-blue">운세</span> <span class="title-warm">캐릭터관</span></div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title" style="margin-left:-16px;">🔮 <span class="title-blue">운세</span> <span class="title-warm">캐릭터관</span></div>', unsafe_allow_html=True)
 
 # 캐릭터 선택 (언제든 변경 가능 -> 바꾸면 처음부터 다시 시작)
 # 처음엔 아무것도 선택되지 않은 상태로 시작해서, 기본값(MZ 여자무당)을 고르더라도
