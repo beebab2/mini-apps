@@ -610,6 +610,8 @@ lucky_times = ["오전 9시~11시", "정오~오후 1시", "오후 3시~5시", "�
 # ------------------------------
 if "persona_id" not in st.session_state:
     st.session_state.persona_id = "mz_shaman"
+if "persona_locked" not in st.session_state:
+    st.session_state.persona_locked = False
 if "step" not in st.session_state:
     st.session_state.step = 0
 if "user_name" not in st.session_state:
@@ -633,14 +635,15 @@ new_persona_id = st.selectbox(
 )
 if new_persona_id != st.session_state.persona_id:
     st.session_state.persona_id = new_persona_id
+    st.session_state.persona_locked = True
     st.session_state.step = 0
     st.rerun()
 
 persona = PERSONAS[st.session_state.persona_id]
 avatar_content = persona.get("avatar_svg", persona["emoji"])
 
-if st.session_state.step == 0:
-    # 시작 화면에서는 10명의 캐릭터가 자동으로 순서대로 바뀌며 보여지는 미리보기 (2.2초 간격)
+if st.session_state.step == 0 and not st.session_state.persona_locked:
+    # 아직 캐릭터를 직접 고르지 않은 상태에서만 10명이 자동으로 순서대로 바뀌며 보여지는 미리보기
     interval = 3.5
     persona_items = list(PERSONAS.items())
     n = len(persona_items)
@@ -657,7 +660,7 @@ if st.session_state.step == 0:
             <div class="avatar-showcase-name">{p['name']}</div>
         </div>'''
     st.markdown(f'<div class="avatar-showcase">{layers_html}</div>', unsafe_allow_html=True)
-    st.markdown('<div class="showcase-caption">✨ 10명의 캐릭터가 기다리고 있어요 ✨</div>', unsafe_allow_html=True)
+    st.markdown('<div class="showcase-caption">✨ 10명의 캐릭터가 기다리고 있어요 · 캐릭터를 고르면 멈춰요 ✨</div>', unsafe_allow_html=True)
 else:
     st.markdown(f"""
     <div class="persona-avatar" style="background:{persona['color']}33; border:2px solid {persona['color']};">
@@ -674,10 +677,15 @@ st.markdown(f'<div class="progress-dots">{dots}</div>', unsafe_allow_html=True)
 # STEP 0: 인사
 # ------------------------------
 if st.session_state.step == 0:
-    st.markdown(f'<div class="speech-bubble">{persona["greeting"]}</div>', unsafe_allow_html=True)
-    if st.button("다음 →", use_container_width=True):
-        st.session_state.step = 1
-        st.rerun()
+    if st.session_state.persona_locked:
+        st.markdown(f'<div class="speech-bubble">{persona["greeting"]}</div>', unsafe_allow_html=True)
+        if st.button("다음 →", use_container_width=True):
+            st.session_state.step = 1
+            st.rerun()
+    else:
+        if st.button("시작하기 →", use_container_width=True):
+            st.session_state.persona_locked = True
+            st.rerun()
 
 # ------------------------------
 # STEP 1: 이름
