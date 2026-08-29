@@ -165,7 +165,7 @@ st.markdown("""
     .fortune-card {
         position: relative;
         border-radius: 20px;
-        padding: 22px;
+        padding: 22px 22px 52px 22px;
         margin-bottom: 14px;
         overflow: hidden;
         box-shadow:
