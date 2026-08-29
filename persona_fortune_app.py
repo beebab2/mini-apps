@@ -171,6 +171,14 @@ st.markdown("""
         border: none !important;
         transform: translateY(0);
     }
+    div[data-testid="column"]:nth-of-type(2) div[data-testid="stLinkButton"] a {
+        background: linear-gradient(180deg, #4dabff 0%, #0064ff 100%) !important;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.5),
+            inset 0 -3px 6px rgba(0,0,0,0.25),
+            0 6px 0 #0047b8,
+            0 10px 18px rgba(0,0,0,0.45) !important;
+    }
     [data-testid="stCaptionContainer"] p, .stCaption {
         color: #cbb8d8 !important;
         opacity: 1 !important;
