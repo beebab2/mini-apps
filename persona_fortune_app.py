@@ -245,23 +245,6 @@ PERSONAS = {
     },
     "baby_fox": {
         "name": "말랑말랑 아기여우", "emoji": "🦊", "color": "#ff9662",
-        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 30 L34 10 L40 34 Z" fill="#ff9662"/>
-            <path d="M26 28 L34 16 L37 30 Z" fill="#fff3ea"/>
-            <path d="M78 30 L66 10 L60 34 Z" fill="#ff9662"/>
-            <path d="M74 28 L66 16 L63 30 Z" fill="#fff3ea"/>
-            <circle cx="50" cy="52" r="30" fill="#ff9662"/>
-            <ellipse cx="50" cy="62" rx="16" ry="12" fill="#fff3ea"/>
-            <ellipse cx="30" cy="58" rx="5" ry="3.4" fill="#ffb3a0" opacity="0.8"/>
-            <ellipse cx="70" cy="58" rx="5" ry="3.4" fill="#ffb3a0" opacity="0.8"/>
-            <circle cx="40" cy="50" r="4.4" fill="#2b1810"/>
-            <circle cx="60" cy="50" r="4.4" fill="#2b1810"/>
-            <circle cx="41.5" cy="48.5" r="1.2" fill="#ffffff"/>
-            <circle cx="61.5" cy="48.5" r="1.2" fill="#ffffff"/>
-            <path d="M50 60 L46 64 L54 64 Z" fill="#2b1810"/>
-            <path d="M50 64 Q50 68 44 68" stroke="#2b1810" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-            <path d="M50 64 Q50 68 56 68" stroke="#2b1810" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-        </svg>''',
         "greeting": "안녕! 나는 숲속 아기여우야! 오늘 네 운세, 내가 콕콕 짚어줄게!",
         "ask_name": "너 이름이 뭐야? 알려줘!",
         "react_name": lambda n: f"{n}! 이름 완전 예쁘다!!" if n else "이름 없어도 괜찮아! 그냥 봐줄게!",
@@ -353,23 +336,6 @@ PERSONAS = {
     },
     "cat_sage": {
         "name": "고양이도사", "emoji": "🐱", "color": "#f4a460",
-        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M26 26 L36 8 L42 30 Z" fill="#f4a460"/>
-            <path d="M29 24 L36 13 L38 28 Z" fill="#fff0e0"/>
-            <path d="M74 26 L64 8 L58 30 Z" fill="#f4a460"/>
-            <path d="M71 24 L64 13 L62 28 Z" fill="#fff0e0"/>
-            <circle cx="50" cy="54" r="29" fill="#f4a460"/>
-            <ellipse cx="50" cy="62" rx="15" ry="11" fill="#fff0e0"/>
-            <path d="M35 50 Q40 46 45 50" stroke="#2b1810" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-            <path d="M55 50 Q60 46 65 50" stroke="#2b1810" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-            <path d="M50 60 L46 63 L54 63 Z" fill="#c0392b"/>
-            <path d="M50 63 Q50 67 45 66" stroke="#2b1810" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-            <path d="M50 63 Q50 67 55 66" stroke="#2b1810" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-            <line x1="16" y1="58" x2="32" y2="60" stroke="#8a5a2b" stroke-width="1"/>
-            <line x1="16" y1="64" x2="32" y2="64" stroke="#8a5a2b" stroke-width="1"/>
-            <line x1="84" y1="58" x2="68" y2="60" stroke="#8a5a2b" stroke-width="1"/>
-            <line x1="84" y1="64" x2="68" y2="64" stroke="#8a5a2b" stroke-width="1"/>
-        </svg>''',
         "greeting": "냥. 오늘 운세가 궁금해서 온 게냥? 뭐, 어쩔 수 없이 봐주지 냥.",
         "ask_name": "이름이 뭐냥?",
         "react_name": lambda n: f"{n}냥? 흥, 기억해두겠다냥." if n else "이름 안 갈쳐줘도 상관없다냥.",
