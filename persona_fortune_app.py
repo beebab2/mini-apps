@@ -68,6 +68,10 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         text-shadow: 0 0 18px rgba(255, 180, 90, 0.35);
     }
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(14px) scale(0.96); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
     .persona-avatar {
         font-size: 3.6rem;
         width: 100px;
@@ -80,6 +84,7 @@ st.markdown("""
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        animation: fadeInUp 0.6s ease-out;
     }
     .persona-avatar svg {
         width: 72px;
@@ -91,6 +96,7 @@ st.markdown("""
         font-weight: 800;
         color: #f9d976;
         margin-bottom: 18px;
+        animation: fadeInUp 0.6s ease-out 0.1s both;
     }
     .avatar-showcase {
         position: relative;
@@ -152,6 +158,7 @@ st.markdown("""
         color: #f0eaff;
         line-height: 1.65;
         margin-bottom: 24px;
+        animation: fadeInUp 0.6s ease-out 0.2s both;
     }
     .fortune-card {
         background: rgba(255,255,255,0.05);
