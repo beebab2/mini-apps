@@ -370,10 +370,10 @@ PERSONAS = {
         ],
     },
     "tarot_master": {
-        "name": "신비로운 타로 마스터", "emoji": "🃏", "color": "#7b5ea7",
+        "name": "신비로운 타로 마스터", "emoji": "🃏", "color": "#a98fe0",
         "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 100 C15 75 32 68 50 68 C68 68 85 75 85 100 Z" fill="#4b2e83"/>
-            <path d="M38 100 C39 82 44 72 50 72 C56 72 61 82 62 100 Z" fill="#7b5ea7"/>
+            <path d="M15 100 C15 75 32 68 50 68 C68 68 85 75 85 100 Z" fill="#6b4fa8"/>
+            <path d="M38 100 C39 82 44 72 50 72 C56 72 61 82 62 100 Z" fill="#a98fe0"/>
             <circle cx="50" cy="45" r="17" fill="#f0d5b8"/>
             <ellipse cx="44" cy="44" rx="2.2" ry="1.6" fill="#2b2b2b"/>
             <ellipse cx="56" cy="44" rx="2.2" ry="1.6" fill="#2b2b2b"/>
@@ -382,8 +382,8 @@ PERSONAS = {
             <path d="M45 55 Q50 58 55 55" stroke="#8a7050" stroke-width="1.4" fill="none" stroke-linecap="round"/>
             <path d="M38 40 Q43 36 47 39" stroke="#d8d8d8" stroke-width="2" fill="none" stroke-linecap="round"/>
             <path d="M53 39 Q57 36 62 40" stroke="#d8d8d8" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <path d="M28 34 Q50 -8 72 34 Q50 26 28 34 Z" fill="#4b2e83"/>
-            <path d="M22 36 Q50 24 78 36 L74 42 Q50 32 26 42 Z" fill="#5e3a9e"/>
+            <path d="M28 34 Q50 -8 72 34 Q50 26 28 34 Z" fill="#6b4fa8"/>
+            <path d="M22 36 Q50 24 78 36 L74 42 Q50 32 26 42 Z" fill="#8a6dc9"/>
             <circle cx="50" cy="6" r="3" fill="#ffe066"/>
             <circle cx="40" cy="16" r="1.6" fill="#ffe066"/>
             <circle cx="60" cy="20" r="1.6" fill="#ffe066"/>
@@ -507,9 +507,9 @@ PERSONAS = {
         ],
     },
     "fortune_master40": {
-        "name": "40대 역술인", "emoji": "🎋", "color": "#4a6fa5",
+        "name": "40대 역술인", "emoji": "🎋", "color": "#7fa8e0",
         "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#25324a"/>
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#3d5580"/>
             <path d="M32 100 C34 84 41 74 50 74 C59 74 66 84 68 100 Z" fill="#f2f2f2"/>
             <rect x="44" y="56" width="12" height="14" rx="4" fill="#e8c9a8"/>
             <circle cx="50" cy="45" r="18" fill="#e8c9a8"/>
@@ -520,8 +520,8 @@ PERSONAS = {
             <path d="M50 45 L49 51 Q50 52.2 51 51" stroke="#c9a172" stroke-width="1" fill="none" stroke-linecap="round"/>
             <path d="M42 54 Q50 51 58 54 Q50 57 42 54 Z" fill="#3a3a3a"/>
             <path d="M45 58 Q50 60 55 58" stroke="#8a5a3a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-            <rect x="42" y="6" width="16" height="16" rx="3" fill="#111111"/>
-            <ellipse cx="50" cy="24" rx="26" ry="6" fill="#111111"/>
+            <rect x="42" y="6" width="16" height="16" rx="3" fill="#3a4a5f"/>
+            <ellipse cx="50" cy="24" rx="26" ry="6" fill="#3a4a5f"/>
         </svg>''',
         "greeting": [
             "어서 오십시오. 사주를 오래 봐온 사람으로서, 오늘 하루의 기운을 차분히 짚어드리겠습니다.",
@@ -556,10 +556,10 @@ PERSONAS = {
         ],
     },
     "joseon_monk": {
-        "name": "조선시대 승려", "emoji": "📿", "color": "#8a7355",
+        "name": "조선시대 승려", "emoji": "📿", "color": "#c9a877",
         "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#7a6248"/>
-            <path d="M50 68 C60 68 66 76 66 88 L66 100 L34 100 L34 84 C34 76 42 68 50 68 Z" fill="#c9b896"/>
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#a8875c"/>
+            <path d="M50 68 C60 68 66 76 66 88 L66 100 L34 100 L34 84 C34 76 42 68 50 68 Z" fill="#ddc9a3"/>
             <rect x="44" y="56" width="12" height="14" rx="4" fill="#e8c9a8"/>
             <circle cx="50" cy="42" r="19" fill="#e8c9a8"/>
             <path d="M40 42 Q43 44 46 42" stroke="#3a2a1a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
@@ -749,21 +749,21 @@ PERSONAS = {
         ],
     },
     "saju_witch": {
-        "name": "사주마녀", "emoji": "🕸", "color": "#5c2a5c",
+        "name": "사주마녀", "emoji": "🕸", "color": "#c07fc0",
         "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#2a1a2e"/>
-            <path d="M32 100 C34 84 41 74 50 74 C59 74 66 84 68 100 Z" fill="#5c2a5c"/>
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#4a2f4f"/>
+            <path d="M32 100 C34 84 41 74 50 74 C59 74 66 84 68 100 Z" fill="#8a4f8a"/>
             <rect x="44" y="55" width="12" height="14" rx="4" fill="#f0dede"/>
             <circle cx="50" cy="43" r="18" fill="#f0dede"/>
-            <path d="M39 42 Q43 39 47 42" stroke="#2a1a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <path d="M53 42 Q57 39 61 42" stroke="#2a1a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <ellipse cx="43" cy="43" rx="1.8" ry="2.4" fill="#5c2a5c"/>
-            <ellipse cx="57" cy="43" rx="1.8" ry="2.4" fill="#5c2a5c"/>
+            <path d="M39 42 Q43 39 47 42" stroke="#4a2f4f" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M53 42 Q57 39 61 42" stroke="#4a2f4f" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <ellipse cx="43" cy="43" rx="1.8" ry="2.4" fill="#8a4f8a"/>
+            <ellipse cx="57" cy="43" rx="1.8" ry="2.4" fill="#8a4f8a"/>
             <path d="M50 44 L49.3 49 Q50 50 50.7 49" stroke="#c9a8a8" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-            <path d="M44 53 Q50 57 56 53 Q50 55 44 53 Z" fill="#4a1a2e"/>
-            <path d="M28 30 Q50 -10 72 30 Q50 22 28 30 Z" fill="#2a1a2e"/>
-            <ellipse cx="50" cy="32" rx="28" ry="6" fill="#2a1a2e"/>
-            <rect x="38" y="24" width="24" height="5" fill="#5c2a5c"/>
+            <path d="M44 53 Q50 57 56 53 Q50 55 44 53 Z" fill="#6a2f4f"/>
+            <path d="M28 30 Q50 -10 72 30 Q50 22 28 30 Z" fill="#4a2f4f"/>
+            <ellipse cx="50" cy="32" rx="28" ry="6" fill="#4a2f4f"/>
+            <rect x="38" y="24" width="24" height="5" fill="#8a4f8a"/>
             <circle cx="50" cy="26.5" r="2.4" fill="#c9a15a"/>
         </svg>''',
         "greeting": [
