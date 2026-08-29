@@ -19,73 +19,65 @@ st.set_page_config(page_title="오늘의 운세", page_icon="🔮", layout="cent
 st.markdown("""
 <style>
     .stApp {
-        background: linear-gradient(180deg, #4f46e5 0%, #4338ca 100%);
+        background: linear-gradient(180deg, #1a1030 0%, #2d1b4e 50%, #1a1030 100%);
     }
     .main-title {
         text-align: center;
         font-size: 2.4rem;
         font-weight: 800;
-        background: linear-gradient(90deg, #6ba3c9, #4a7fa5);
+        background: linear-gradient(90deg, #f9d976, #f39f86, #c99df0);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 0px;
-        letter-spacing: -0.5px;
     }
     .sub-caption {
         text-align: center;
-        color: #7a94a3;
+        color: #c9b8e8;
         margin-bottom: 1.5rem;
-        letter-spacing: 0.5px;
     }
     .zodiac-badge {
         text-align: center;
-        font-size: 1.05rem;
-        color: #4a7fa5;
-        font-weight: 600;
+        font-size: 1.1rem;
+        color: #f9d976;
         margin-bottom: 1rem;
     }
     .fortune-card {
-        background: #ffffff;
-        border: 1px solid #d5e6f0;
-        box-shadow: 0 2px 16px rgba(60, 50, 40, 0.06);
-        border-radius: 18px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 20px;
         padding: 24px;
         margin-top: 14px;
         margin-bottom: 14px;
     }
     .fortune-cat-title {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         font-weight: 700;
-        color: #4a7fa5;
+        color: #f9d976;
         margin-bottom: 6px;
-        letter-spacing: -0.2px;
     }
     .fortune-cat-text {
         font-size: 1rem;
-        color: #3a4a56;
-        line-height: 1.65;
+        color: #f0eaff;
+        line-height: 1.6;
         margin-bottom: 4px;
     }
     .lucky-box {
-        background: #f4f9fc;
-        border: 1px solid #d5e6f0;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
         border-radius: 16px;
-        padding: 18px;
+        padding: 16px;
         text-align: center;
-        color: #3a4a56;
-        font-weight: 500;
+        color: #f5f0ff;
         margin-bottom: 18px;
-        line-height: 1.8;
     }
     div[data-testid="stButton"] button {
-        background: linear-gradient(90deg, #6ba3c9, #4a7fa5);
-        color: #ffffff;
+        background: linear-gradient(90deg, #f9d976, #c99df0);
+        color: #1a1030;
         font-weight: 700;
         border-radius: 30px;
         border: none;
         padding: 10px 0;
         width: 100%;
-        letter-spacing: 0.3px;
     }
     div[data-testid="stLinkButton"] a {
         border-radius: 30px !important;
@@ -93,23 +85,22 @@ st.markdown("""
     }
     [data-testid="stCaptionContainer"] p,
     .stCaption {
-        color: #7a94a3 !important;
+        color: #e4dbf7 !important;
         opacity: 1 !important;
     }
     label, .stSlider label {
-        color: #7a94a3 !important;
-        font-weight: 500;
+        color: #e4dbf7 !important;
     }
     .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
     .stMarkdown h4, .stMarkdown h5, .stMarkdown h6,
     .stMarkdown p {
-        color: #2e3d47 !important;
+        color: #f5f0ff !important;
         opacity: 1 !important;
     }
     div[data-testid="stTextInput"] input {
-        background: #ffffff !important;
-        color: #2e3d47 !important;
-        border: 1px solid #d5e6f0 !important;
+        background: rgba(255,255,255,0.08) !important;
+        color: #f5f0ff !important;
+        border: 1px solid rgba(255,255,255,0.2) !important;
         border-radius: 12px !important;
     }
     div[data-baseweb="select"] {
@@ -201,20 +192,20 @@ st.markdown("""
     <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <radialGradient id="ballGrad" cx="35%" cy="30%" r="70%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="45%" stop-color="#bfe0f0"/>
-                <stop offset="100%" stop-color="#4a7fa5"/>
+                <stop offset="0%" stop-color="#fff6e0"/>
+                <stop offset="45%" stop-color="#c99df0"/>
+                <stop offset="100%" stop-color="#6b3fa0"/>
             </radialGradient>
             <linearGradient id="standGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#6ba3c9"/>
-                <stop offset="100%" stop-color="#3d6d94"/>
+                <stop offset="0%" stop-color="#f9d976"/>
+                <stop offset="100%" stop-color="#c98a2e"/>
             </linearGradient>
         </defs>
-        <circle cx="32" cy="27" r="20" fill="url(#ballGrad)" stroke="#6ba3c9" stroke-width="1.5"/>
-        <ellipse cx="25" cy="19" rx="6" ry="4" fill="#ffffff" opacity="0.7"/>
+        <circle cx="32" cy="27" r="20" fill="url(#ballGrad)" stroke="#f9d976" stroke-width="1.5"/>
+        <ellipse cx="25" cy="19" rx="6" ry="4" fill="#ffffff" opacity="0.55"/>
         <path d="M16 50 Q32 42 48 50 L52 58 Q32 52 12 58 Z" fill="url(#standGrad)"/>
-        <path d="M8 8 l2.2 5.2 L15.4 15.4 l-5.2 2.2 L8 22.8 l-2.2-5.2 L0.6 15.4 l5.2-2.2 Z" fill="#6ba3c9"/>
-        <path d="M53 6 l1.6 3.8 3.8 1.6 -3.8 1.6 -1.6 3.8 -1.6-3.8 -3.8-1.6 3.8-1.6 Z" fill="#4a7fa5"/>
+        <path d="M8 8 l2.2 5.2 L15.4 15.4 l-5.2 2.2 L8 22.8 l-2.2-5.2 L0.6 15.4 l5.2-2.2 Z" fill="#f9d976"/>
+        <path d="M53 6 l1.6 3.8 3.8 1.6 -3.8 1.6 -1.6 3.8 -1.6-3.8 -3.8-1.6 3.8-1.6 Z" fill="#f39f86"/>
     </svg>
     <span>오늘의 운세</span>
 </div>
