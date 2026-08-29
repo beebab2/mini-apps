@@ -157,9 +157,9 @@ st.markdown("""
     div[data-testid="stLinkButton"] a {
         border-radius: 30px !important;
         font-weight: 900 !important;
-        font-size: 1.15rem !important;
+        font-size: 1.4rem !important;
         letter-spacing: 0.3px !important;
-        padding: 16px 10px !important;
+        padding: 18px 10px !important;
         color: #ffffff !important;
         background: linear-gradient(180deg, #ffb066 0%, #ff5e3a 100%) !important;
         text-shadow: 0 1px 3px rgba(0,0,0,0.35) !important;
