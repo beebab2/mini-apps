@@ -693,10 +693,17 @@ if st.session_state.step == 0:
 elif st.session_state.step == 1:
     st.markdown(f'<div class="speech-bubble">{persona["ask_name"]}</div>', unsafe_allow_html=True)
     name_input = st.text_input("이름 (선택)", value=st.session_state.user_name, placeholder="예: 인수", label_visibility="collapsed")
-    if st.button("다음 →", use_container_width=True):
-        st.session_state.user_name = name_input
-        st.session_state.step = 2
-        st.rerun()
+    col_back, col_next = st.columns([1, 2])
+    with col_back:
+        if st.button("← 이전", use_container_width=True):
+            st.session_state.user_name = name_input
+            st.session_state.step = 0
+            st.rerun()
+    with col_next:
+        if st.button("다음 →", use_container_width=True):
+            st.session_state.user_name = name_input
+            st.session_state.step = 2
+            st.rerun()
 
 # ------------------------------
 # STEP 2: 생년월일
@@ -715,17 +722,26 @@ elif st.session_state.step == 2:
     with col_d:
         bd = st.selectbox("일", list(range(1, 32)), index=st.session_state.birth_day - 1)
 
-    if st.button("다음 →", use_container_width=True):
-        try:
-            date(by, bm, bd)
-        except ValueError:
-            st.warning("존재하지 않는 날짜예요. 다시 확인해주세요.")
-            st.stop()
-        st.session_state.birth_year = by
-        st.session_state.birth_month = bm
-        st.session_state.birth_day = bd
-        st.session_state.step = 3
-        st.rerun()
+    col_back, col_next = st.columns([1, 2])
+    with col_back:
+        if st.button("← 이전", use_container_width=True):
+            st.session_state.birth_year = by
+            st.session_state.birth_month = bm
+            st.session_state.birth_day = bd
+            st.session_state.step = 1
+            st.rerun()
+    with col_next:
+        if st.button("다음 →", use_container_width=True):
+            try:
+                date(by, bm, bd)
+            except ValueError:
+                st.warning("존재하지 않는 날짜예요. 다시 확인해주세요.")
+                st.stop()
+            st.session_state.birth_year = by
+            st.session_state.birth_month = bm
+            st.session_state.birth_day = bd
+            st.session_state.step = 3
+            st.rerun()
 
 # ------------------------------
 # STEP 3: 생년월일 확인 + 운세 뽑기 유도
@@ -737,9 +753,15 @@ elif st.session_state.step == 3:
         f'<div class="speech-bubble">{ZODIAC_EMOJI[zodiac]} {reaction}</div>',
         unsafe_allow_html=True,
     )
-    if st.button(persona["button_label"], use_container_width=True):
-        st.session_state.step = 4
-        st.rerun()
+    col_back, col_next = st.columns([1, 2])
+    with col_back:
+        if st.button("← 이전", use_container_width=True):
+            st.session_state.step = 2
+            st.rerun()
+    with col_next:
+        if st.button(persona["button_label"], use_container_width=True):
+            st.session_state.step = 4
+            st.rerun()
 
 # ------------------------------
 # STEP 4: 결과
