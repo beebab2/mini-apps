@@ -166,58 +166,62 @@ st.markdown("""
         position: relative;
         border-radius: 20px;
         padding: 22px;
-        padding-right: 76px;
         margin-bottom: 14px;
         overflow: hidden;
         box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.6),
-            inset 0 -2px 6px rgba(0,0,0,0.06),
-            0 8px 18px rgba(0,0,0,0.28);
+            inset 0 1px 0 rgba(255,255,255,0.25),
+            0 8px 18px rgba(0,0,0,0.3);
     }
-    .fortune-cat-icon {
+    .fortune-cat-icon-tr {
         position: absolute;
-        top: 14px;
-        right: 14px;
-        font-size: 2.6rem;
-        opacity: 0.9;
-        transform: rotate(8deg);
+        top: 10px;
+        right: 12px;
+        font-size: 2.2rem;
+        opacity: 0.32;
+        transform: rotate(10deg);
         line-height: 1;
+        pointer-events: none;
+    }
+    .fortune-cat-icon-bl {
+        position: absolute;
+        bottom: 8px;
+        left: 12px;
+        font-size: 2rem;
+        opacity: 0.28;
+        transform: rotate(-8deg);
+        line-height: 1;
+        pointer-events: none;
     }
     .fortune-cat-title {
         font-size: 1.05rem;
         font-weight: 800;
         margin-bottom: 4px;
+        color: #ffffff;
+        position: relative;
+        z-index: 1;
     }
     .fortune-cat-text {
         font-size: 0.98rem;
-        color: #2e2418;
+        color: #ffffff;
         line-height: 1.6;
+        position: relative;
+        z-index: 1;
     }
     .fortune-card-general {
-        background: linear-gradient(135deg, #fffaf0 0%, #f7e6c4 100%);
-        border: 1px solid rgba(150, 105, 25, 0.25);
+        background: #f2b93c;
     }
-    .fortune-card-general .fortune-cat-title { color: #7a5518; }
     .fortune-card-love {
-        background: linear-gradient(135deg, #fef2f5 0%, #f7d9e1 100%);
-        border: 1px solid rgba(160, 70, 95, 0.25);
+        background: #e0559a;
     }
-    .fortune-card-love .fortune-cat-title { color: #8a3d52; }
     .fortune-card-money {
-        background: linear-gradient(135deg, #f5faee 0%, #dfeed0 100%);
-        border: 1px solid rgba(80, 110, 40, 0.25);
+        background: #3fae6a;
     }
-    .fortune-card-money .fortune-cat-title { color: #4a6021; }
     .fortune-card-health {
-        background: linear-gradient(135deg, #f0faf8 0%, #cdeae4 100%);
-        border: 1px solid rgba(40, 100, 90, 0.25);
+        background: #3d8fd6;
     }
-    .fortune-card-health .fortune-cat-title { color: #1f5951; }
     .fortune-card-relationship {
-        background: linear-gradient(135deg, #f8f2fc 0%, #e3d2f2 100%);
-        border: 1px solid rgba(90, 55, 140, 0.25);
+        background: #7a5cd6;
     }
-    .fortune-card-relationship .fortune-cat-title { color: #573579; }
     .lucky-box {
         background: rgba(255,255,255,0.06);
         border: 1px solid rgba(255,255,255,0.15);
@@ -1727,21 +1731,23 @@ elif st.session_state.step == 4:
         "건강운": "fortune-card-health",
         "인간관계운": "fortune-card-relationship",
     }
-    category_icon = {
-        "총운": "🔮",
-        "애정운": "💕",
-        "재물운": "💰",
-        "건강운": "🌿",
-        "인간관계운": "🤝",
+    category_icons = {
+        "총운": ("🔮", "✨"),
+        "애정운": ("💕", "🌹"),
+        "재물운": ("💰", "🪙"),
+        "건강운": ("🌿", "💪"),
+        "인간관계운": ("🤝", "👥"),
     }
     active_pool = PERSONA_FORTUNE.get(st.session_state.persona_id, fortune_pool)
     for cat in categories:
         text = random.choice(active_pool[cat])
         score = random.randint(55, 98)
         total_luck += score
+        icon_tr, icon_bl = category_icons[cat]
         st.markdown(f"""
         <div class="fortune-card {category_class[cat]}">
-            <div class="fortune-cat-icon">{category_icon[cat]}</div>
+            <div class="fortune-cat-icon-tr">{icon_tr}</div>
+            <div class="fortune-cat-icon-bl">{icon_bl}</div>
             <div class="fortune-cat-title">{cat} · {score}점</div>
             <div class="fortune-cat-text">{text}</div>
         </div>
