@@ -158,8 +158,9 @@ st.markdown("""
         border-radius: 30px !important;
         font-weight: 900 !important;
         font-size: 1.4rem !important;
-        letter-spacing: 0.3px !important;
-        padding: 18px 10px !important;
+        letter-spacing: 0.2px !important;
+        padding: 20px 6px !important;
+        line-height: 1.25 !important;
         color: #ffffff !important;
         background: linear-gradient(180deg, #ffb066 0%, #ff5e3a 100%) !important;
         text-shadow: 0 1px 3px rgba(0,0,0,0.35) !important;
@@ -170,6 +171,18 @@ st.markdown("""
             0 10px 18px rgba(0,0,0,0.45) !important;
         border: none !important;
         transform: translateY(0);
+        -webkit-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
+    }
+    div[data-testid="stLinkButton"] a p {
+        font-size: inherit !important;
+        font-weight: inherit !important;
+    }
+    @media (max-width: 480px) {
+        div[data-testid="stLinkButton"] a {
+            font-size: 1.9rem !important;
+            padding: 22px 4px !important;
+        }
     }
     div[data-testid*="olumn"]:nth-of-type(2) div[data-testid="stLinkButton"] a {
         background: linear-gradient(180deg, #4dabff 0%, #0064ff 100%) !important;
