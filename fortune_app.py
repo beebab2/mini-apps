@@ -19,7 +19,7 @@ st.set_page_config(page_title="오늘의 운세", page_icon="🔮", layout="cent
 st.markdown("""
 <style>
     .stApp {
-        background: linear-gradient(180deg, #f4f9fc 0%, #e3eff7 100%);
+        background: linear-gradient(180deg, #eafcec 0%, #b8f5be 100%);
     }
     .main-title {
         text-align: center;
