@@ -163,8 +163,6 @@ st.markdown("""
         animation: fadeInUp 0.6s ease-out 0.2s both;
     }
     .fortune-card {
-        background: rgba(240, 197, 110, 0.92);
-        border: 1px solid rgba(180, 130, 40, 0.5);
         border-radius: 20px;
         padding: 22px;
         margin-bottom: 12px;
@@ -173,14 +171,38 @@ st.markdown("""
     .fortune-cat-title {
         font-size: 1.05rem;
         font-weight: 800;
-        color: #5c3d0e;
         margin-bottom: 4px;
     }
     .fortune-cat-text {
         font-size: 0.98rem;
-        color: #3a2a1c;
+        color: #2e2418;
         line-height: 1.6;
     }
+    .fortune-card-general {
+        background: linear-gradient(135deg, #f7dca0 0%, #d9a441 100%);
+        border: 1px solid rgba(150, 105, 25, 0.5);
+    }
+    .fortune-card-general .fortune-cat-title { color: #5c3d0e; }
+    .fortune-card-love {
+        background: linear-gradient(135deg, #f5c6d3 0%, #d4849c 100%);
+        border: 1px solid rgba(160, 70, 95, 0.5);
+    }
+    .fortune-card-love .fortune-cat-title { color: #6e2438; }
+    .fortune-card-money {
+        background: linear-gradient(135deg, #d9e8c4 0%, #8fb96f 100%);
+        border: 1px solid rgba(80, 110, 40, 0.5);
+    }
+    .fortune-card-money .fortune-cat-title { color: #33470f; }
+    .fortune-card-health {
+        background: linear-gradient(135deg, #b8e2dc 0%, #5fa89e 100%);
+        border: 1px solid rgba(40, 100, 90, 0.5);
+    }
+    .fortune-card-health .fortune-cat-title { color: #123c35; }
+    .fortune-card-relationship {
+        background: linear-gradient(135deg, #dcc9f0 0%, #a17fd0 100%);
+        border: 1px solid rgba(90, 55, 140, 0.5);
+    }
+    .fortune-card-relationship .fortune-cat-title { color: #3d2160; }
     .lucky-box {
         background: rgba(255,255,255,0.06);
         border: 1px solid rgba(255,255,255,0.15);
@@ -1683,13 +1705,20 @@ elif st.session_state.step == 4:
 
     total_luck = 0
     categories = ["총운", "애정운", "재물운", "건강운", "인간관계운"]
+    category_class = {
+        "총운": "fortune-card-general",
+        "애정운": "fortune-card-love",
+        "재물운": "fortune-card-money",
+        "건강운": "fortune-card-health",
+        "인간관계운": "fortune-card-relationship",
+    }
     active_pool = PERSONA_FORTUNE.get(st.session_state.persona_id, fortune_pool)
     for cat in categories:
         text = random.choice(active_pool[cat])
         score = random.randint(55, 98)
         total_luck += score
         st.markdown(f"""
-        <div class="fortune-card">
+        <div class="fortune-card {category_class[cat]}">
             <div class="fortune-cat-title">{cat} · {score}점</div>
             <div class="fortune-cat-text">{text}</div>
         </div>
