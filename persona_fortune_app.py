@@ -1547,6 +1547,10 @@ if st.session_state.step == 0:
         if st.button("다음 →", use_container_width=True):
             st.session_state.step = 1
             st.rerun()
+        if st.button("← 다른 캐릭터 고르기", use_container_width=True):
+            st.session_state.persona_locked = False
+            st.session_state.persona_selected_once = False
+            st.rerun()
     else:
         if st.button("시작하기 →", use_container_width=True):
             st.session_state.persona_locked = True
