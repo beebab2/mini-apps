@@ -222,11 +222,19 @@ st.markdown("""
     .fortune-card-general {
         background: #f2b93c;
     }
+    .fortune-card-general .fortune-cat-title,
+    .fortune-card-general .fortune-cat-text {
+        color: #2e2410;
+    }
     .fortune-card-love {
         background: #e0559a;
     }
     .fortune-card-money {
         background: #3fae6a;
+    }
+    .fortune-card-money .fortune-cat-title,
+    .fortune-card-money .fortune-cat-text {
+        color: #16321f;
     }
     .fortune-card-health {
         background: #3d8fd6;
