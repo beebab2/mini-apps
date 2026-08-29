@@ -33,6 +33,14 @@ st.markdown("""
         border-radius: 50%;
         margin: 0 auto 14px auto;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .persona-avatar svg {
+        width: 72px;
+        height: 72px;
     }
     .persona-name {
         text-align: center;
@@ -147,6 +155,25 @@ st.markdown("""
 PERSONAS = {
     "mz_shaman": {
         "name": "MZ 여자무당", "emoji": "🔮", "color": "#ff6ec7",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 100 C12 78 30 66 50 66 C70 66 88 78 88 100 Z" fill="#ff6ec7"/>
+            <path d="M30 100 C32 84 40 72 50 72 C60 72 68 84 70 100 Z" fill="#fff0f5"/>
+            <path d="M42 100 C43 88 46 78 50 78 C54 78 57 88 58 100 Z" fill="#6ec1ff"/>
+            <rect x="44" y="55" width="12" height="14" rx="4" fill="#ffdbac"/>
+            <circle cx="50" cy="42" r="20" fill="#ffdbac"/>
+            <path d="M30 36 Q50 18 70 36 Q68 24 50 20 Q32 24 30 36 Z" fill="#231710"/>
+            <path d="M28 40 Q24 55 30 62 Q26 48 30 38 Z" fill="#231710"/>
+            <path d="M72 40 Q76 55 70 62 Q74 48 70 38 Z" fill="#231710"/>
+            <circle cx="50" cy="16" r="7" fill="#231710"/>
+            <rect x="45" y="7" width="10" height="7" rx="2" fill="#1a1a1a"/>
+            <circle cx="50" cy="8" r="2.4" fill="#ff4d4d"/>
+            <g transform="translate(74,55) rotate(-25)">
+                <path d="M0 0 L18 -6 L20 2 L2 8 Z" fill="#ffe066"/>
+                <path d="M0 0 L18 -6" stroke="#e0b800" stroke-width="1"/>
+                <path d="M0 0 L20 2" stroke="#e0b800" stroke-width="1"/>
+                <line x1="0" y1="0" x2="-6" y2="6" stroke="#8a5a2b" stroke-width="2"/>
+            </g>
+        </svg>''',
         "greeting": "안뇽! 나 지금 좀 신기 올라와서ㅋㅋ 몇 개만 물어볼게!",
         "ask_name": "너 이름이 뭐야?",
         "react_name": lambda n: f"{n}?ㅋㅋ 이름 딱 좋다! 느낌 온다ㅋㅋ" if n else "음... 익명으로 봐줄게ㅋㅋ",
@@ -157,6 +184,19 @@ PERSONAS = {
     },
     "tarot_master": {
         "name": "신비로운 타로 마스터", "emoji": "🃏", "color": "#7b5ea7",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 100 C15 75 32 68 50 68 C68 68 85 75 85 100 Z" fill="#4b2e83"/>
+            <path d="M38 100 C39 82 44 72 50 72 C56 72 61 82 62 100 Z" fill="#7b5ea7"/>
+            <circle cx="50" cy="45" r="17" fill="#f0d5b8"/>
+            <path d="M35 50 Q50 78 65 50 Q58 62 50 64 Q42 62 35 50 Z" fill="#e8e8e8"/>
+            <path d="M38 40 Q43 36 47 39" stroke="#d8d8d8" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M53 39 Q57 36 62 40" stroke="#d8d8d8" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M28 34 Q50 -8 72 34 Q50 26 28 34 Z" fill="#4b2e83"/>
+            <path d="M22 36 Q50 24 78 36 L74 42 Q50 32 26 42 Z" fill="#5e3a9e"/>
+            <circle cx="50" cy="6" r="3" fill="#ffe066"/>
+            <circle cx="40" cy="16" r="1.6" fill="#ffe066"/>
+            <circle cx="60" cy="20" r="1.6" fill="#ffe066"/>
+        </svg>''',
         "greeting": "카드가 당신을 기다리고 있습니다. 조용히 마음을 가라앉히고, 오늘의 운명을 들여다보겠습니다.",
         "ask_name": "성함을 말씀해주시겠습니까?",
         "react_name": lambda n: f"{n}... 좋은 이름입니다. 카드가 그 이름을 기억하겠군요." if n else "이름을 밝히지 않으셔도 좋습니다. 익명의 기운도 읽을 수 있으니까요.",
@@ -338,10 +378,11 @@ if new_persona_id != st.session_state.persona_id:
     st.rerun()
 
 persona = PERSONAS[st.session_state.persona_id]
+avatar_content = persona.get("avatar_svg", persona["emoji"])
 
 st.markdown(f"""
 <div class="persona-avatar" style="background:{persona['color']}33; border:2px solid {persona['color']};">
-    {persona['emoji']}
+    {avatar_content}
 </div>
 <div class="persona-name">{persona['name']}</div>
 """, unsafe_allow_html=True)
