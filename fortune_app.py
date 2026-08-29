@@ -19,7 +19,7 @@ st.set_page_config(page_title="오늘의 운세", page_icon="🔮", layout="cent
 st.markdown("""
 <style>
     .stApp {
-        background: linear-gradient(180deg, #fdfbf7 0%, #f6f1eb 100%);
+        background: linear-gradient(180deg, #f4f9fc 0%, #e3eff7 100%);
     }
     .main-title {
         text-align: center;
@@ -46,7 +46,7 @@ st.markdown("""
     }
     .fortune-card {
         background: #ffffff;
-        border: 1px solid #ece4d8;
+        border: 1px solid #d5e6f0;
         box-shadow: 0 2px 16px rgba(60, 50, 40, 0.06);
         border-radius: 18px;
         padding: 24px;
@@ -68,7 +68,7 @@ st.markdown("""
     }
     .lucky-box {
         background: #fdfbf7;
-        border: 1px solid #ece4d8;
+        border: 1px solid #d5e6f0;
         border-radius: 16px;
         padding: 18px;
         text-align: center;
@@ -109,7 +109,7 @@ st.markdown("""
     div[data-testid="stTextInput"] input {
         background: #ffffff !important;
         color: #4a4038 !important;
-        border: 1px solid #ece4d8 !important;
+        border: 1px solid #d5e6f0 !important;
         border-radius: 12px !important;
     }
     div[data-baseweb="select"] {
@@ -221,7 +221,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown(f'<div class="sub-caption">{date.today().strftime("%Y년 %m월 %d일")} 기준</div>', unsafe_allow_html=True)
 
-name = st.text_input("이름 (선택)", placeholder="예: 유재석")
+name = st.text_input("이름 (선택)", placeholder="예: 인수")
 
 current_year = date.today().year
 year_options = list(range(current_year, 1929, -1))  # 최근 연도부터 1930년까지
