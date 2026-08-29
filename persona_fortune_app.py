@@ -176,15 +176,10 @@ st.markdown("""
         position: absolute;
         top: 10px;
         right: 12px;
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        background: rgba(255,255,255,0.28);
-        border-radius: 50%;
+        font-size: 2.6rem;
+        opacity: 1;
         transform: rotate(8deg);
+        filter: drop-shadow(0 2px 5px rgba(0,0,0,0.45)) saturate(1.3);
         line-height: 1;
         pointer-events: none;
     }
@@ -192,15 +187,10 @@ st.markdown("""
         position: absolute;
         bottom: 8px;
         left: 12px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        background: rgba(255,255,255,0.24);
-        border-radius: 50%;
+        font-size: 2.2rem;
+        opacity: 1;
         transform: rotate(-6deg);
+        filter: drop-shadow(0 2px 5px rgba(0,0,0,0.45)) saturate(1.3);
         line-height: 1;
         pointer-events: none;
     }
