@@ -98,13 +98,25 @@ st.markdown("""
         opacity: 1 !important;
     }
     div[data-testid="stTextInput"] input {
-        background: rgba(255,255,255,0.08) !important;
+        background: rgba(255,255,255,0.12) !important;
         color: #f5f0ff !important;
-        border: 1px solid rgba(255,255,255,0.2) !important;
+        border: 1px solid rgba(255,255,255,0.25) !important;
         border-radius: 12px !important;
     }
     div[data-baseweb="select"] {
         border-radius: 12px !important;
+    }
+    div[data-baseweb="select"] > div {
+        background: rgba(255,255,255,0.12) !important;
+        border: 1px solid rgba(255,255,255,0.25) !important;
+        color: #f5f0ff !important;
+        border-radius: 12px !important;
+    }
+    div[data-baseweb="select"] span {
+        color: #f5f0ff !important;
+    }
+    div[data-baseweb="select"] svg {
+        fill: #f5f0ff !important;
     }
 </style>
 """, unsafe_allow_html=True)
