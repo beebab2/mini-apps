@@ -820,4 +820,5 @@ elif st.session_state.step == 4:
 
     if st.button("🔄 처음부터 다시하기", use_container_width=True):
         st.session_state.step = 0
+        st.session_state.persona_locked = False
         st.rerun()
