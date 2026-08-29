@@ -154,6 +154,10 @@ st.markdown("""
         width: 100%;
         font-size: 1.05rem;
     }
+    @keyframes pulseButton {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.06); }
+    }
     div[data-testid="stLinkButton"] a {
         border-radius: 30px !important;
         font-weight: 900 !important;
@@ -170,9 +174,10 @@ st.markdown("""
             0 6px 0 #c23e1f,
             0 10px 18px rgba(0,0,0,0.45) !important;
         border: none !important;
-        transform: translateY(0);
         -webkit-text-size-adjust: 100% !important;
         text-size-adjust: 100% !important;
+        animation: pulseButton 1.6s ease-in-out infinite;
+        display: inline-block;
     }
     div[data-testid="stLinkButton"] a * {
         font-size: 1.4rem !important;
@@ -196,6 +201,7 @@ st.markdown("""
             inset 0 -3px 6px rgba(0,0,0,0.25),
             0 6px 0 #0047b8,
             0 10px 18px rgba(0,0,0,0.45) !important;
+        animation-delay: 0.4s;
     }
     div[data-testid*="olumn"]:nth-of-type(2) div[data-testid="stLinkButton"] a * {
         background: transparent !important;
