@@ -156,12 +156,20 @@ st.markdown("""
     }
     div[data-testid="stLinkButton"] a {
         border-radius: 30px !important;
-        font-weight: 800 !important;
-        font-size: 1.05rem !important;
-        padding: 14px 10px !important;
+        font-weight: 900 !important;
+        font-size: 1.15rem !important;
+        letter-spacing: 0.3px !important;
+        padding: 16px 10px !important;
         color: #ffffff !important;
-        background: linear-gradient(90deg, #ff9d4d, #ff5e3a) !important;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.35) !important;
+        background: linear-gradient(180deg, #ffb066 0%, #ff5e3a 100%) !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.35) !important;
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.5),
+            inset 0 -3px 6px rgba(0,0,0,0.25),
+            0 6px 0 #c23e1f,
+            0 10px 18px rgba(0,0,0,0.45) !important;
+        border: none !important;
+        transform: translateY(0);
     }
     [data-testid="stCaptionContainer"] p, .stCaption {
         color: #cbb8d8 !important;
