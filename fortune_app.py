@@ -85,6 +85,14 @@ st.markdown("""
         border: none;
         padding: 10px 0;
         width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div[data-testid="stButton"] button p {
+        text-align: center;
+        width: 100%;
     }
     div[data-testid="stLinkButton"] a {
         border-radius: 30px !important;
