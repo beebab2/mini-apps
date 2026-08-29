@@ -217,6 +217,24 @@ PERSONAS = {
     },
     "grandma_shaman": {
         "name": "따뜻한 할머니 무당", "emoji": "🍵", "color": "#d98e5f",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#d98e5f"/>
+            <path d="M32 100 C34 84 41 74 50 74 C59 74 66 84 68 100 Z" fill="#fff3e6"/>
+            <rect x="44" y="56" width="12" height="14" rx="4" fill="#e8c39a"/>
+            <circle cx="50" cy="45" r="18" fill="#e8c39a"/>
+            <path d="M35 48 Q37 50 35 52" stroke="#c9a172" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M65 48 Q63 50 65 52" stroke="#c9a172" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M40 43 Q43 40 46 43" stroke="#3a2a1a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <path d="M54 43 Q57 40 60 43" stroke="#3a2a1a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <path d="M39 37 Q43 35 47 37" stroke="#c9c9c9" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M53 37 Q57 35 61 37" stroke="#c9c9c9" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M50 45 L49 50 Q50 51 51 50" stroke="#c9a172" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M42 54 Q50 60 58 54" stroke="#a8674a" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="50" cy="20" r="9" fill="#e5e5e5"/>
+            <path d="M32 30 Q50 10 68 30 Q66 20 50 16 Q34 20 32 30 Z" fill="#eaeaea"/>
+            <line x1="38" y1="20" x2="62" y2="20" stroke="#c9a15a" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="62" cy="20" r="2" fill="#c9a15a"/>
+        </svg>''',
         "greeting": "아이고 왔능가~ 할미가 오늘 하루 봐줄 텡께 이리 앉아보소.",
         "ask_name": "이름이 뭐라고 혔지?",
         "react_name": lambda n: f"{n}이여? 이름도 참 이쁘네." if n else "이름 안 갈쳐줘도 괜찮여~",
@@ -227,6 +245,23 @@ PERSONAS = {
     },
     "baby_fox": {
         "name": "말랑말랑 아기여우", "emoji": "🦊", "color": "#ff9662",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 30 L34 10 L40 34 Z" fill="#ff9662"/>
+            <path d="M26 28 L34 16 L37 30 Z" fill="#fff3ea"/>
+            <path d="M78 30 L66 10 L60 34 Z" fill="#ff9662"/>
+            <path d="M74 28 L66 16 L63 30 Z" fill="#fff3ea"/>
+            <circle cx="50" cy="52" r="30" fill="#ff9662"/>
+            <ellipse cx="50" cy="62" rx="16" ry="12" fill="#fff3ea"/>
+            <ellipse cx="30" cy="58" rx="5" ry="3.4" fill="#ffb3a0" opacity="0.8"/>
+            <ellipse cx="70" cy="58" rx="5" ry="3.4" fill="#ffb3a0" opacity="0.8"/>
+            <circle cx="40" cy="50" r="4.4" fill="#2b1810"/>
+            <circle cx="60" cy="50" r="4.4" fill="#2b1810"/>
+            <circle cx="41.5" cy="48.5" r="1.2" fill="#ffffff"/>
+            <circle cx="61.5" cy="48.5" r="1.2" fill="#ffffff"/>
+            <path d="M50 60 L46 64 L54 64 Z" fill="#2b1810"/>
+            <path d="M50 64 Q50 68 44 68" stroke="#2b1810" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M50 64 Q50 68 56 68" stroke="#2b1810" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        </svg>''',
         "greeting": "안녕! 나는 숲속 아기여우야! 오늘 네 운세, 내가 콕콕 짚어줄게!",
         "ask_name": "너 이름이 뭐야? 알려줘!",
         "react_name": lambda n: f"{n}! 이름 완전 예쁘다!!" if n else "이름 없어도 괜찮아! 그냥 봐줄게!",
@@ -237,6 +272,21 @@ PERSONAS = {
     },
     "fortune_master40": {
         "name": "40대 역술인", "emoji": "🎋", "color": "#4a6fa5",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#25324a"/>
+            <path d="M32 100 C34 84 41 74 50 74 C59 74 66 84 68 100 Z" fill="#f2f2f2"/>
+            <rect x="44" y="56" width="12" height="14" rx="4" fill="#e8c9a8"/>
+            <circle cx="50" cy="45" r="18" fill="#e8c9a8"/>
+            <ellipse cx="43" cy="44" rx="2.2" ry="1.6" fill="#1a1a1a"/>
+            <ellipse cx="57" cy="44" rx="2.2" ry="1.6" fill="#1a1a1a"/>
+            <path d="M38 39 L48 38" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M52 38 L62 39" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M50 45 L49 51 Q50 52.2 51 51" stroke="#c9a172" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M42 54 Q50 51 58 54 Q50 57 42 54 Z" fill="#3a3a3a"/>
+            <path d="M45 58 Q50 60 55 58" stroke="#8a5a3a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <rect x="42" y="6" width="16" height="16" rx="3" fill="#111111"/>
+            <ellipse cx="50" cy="24" rx="26" ry="6" fill="#111111"/>
+        </svg>''',
         "greeting": "어서 오십시오. 사주를 오래 봐온 사람으로서, 오늘 하루의 기운을 차분히 짚어드리겠습니다.",
         "ask_name": "성함이 어떻게 되십니까?",
         "react_name": lambda n: f"{n} 님이시군요. 잘 알겠습니다." if n else "성함은 말씀 안 하셔도 무방합니다.",
@@ -247,6 +297,24 @@ PERSONAS = {
     },
     "joseon_monk": {
         "name": "조선시대 승려", "emoji": "📿", "color": "#8a7355",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#7a6248"/>
+            <path d="M50 68 C60 68 66 76 66 88 L66 100 L34 100 L34 84 C34 76 42 68 50 68 Z" fill="#c9b896"/>
+            <rect x="44" y="56" width="12" height="14" rx="4" fill="#e8c9a8"/>
+            <circle cx="50" cy="42" r="19" fill="#e8c9a8"/>
+            <path d="M40 42 Q43 44 46 42" stroke="#3a2a1a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M54 42 Q57 44 60 42" stroke="#3a2a1a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M50 43 L49 48 Q50 49.2 51 48" stroke="#c9a172" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M43 52 Q50 56 57 52" stroke="#8a5a3a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <circle cx="50" cy="28" r="1.4" fill="#c0392b"/>
+            <g fill="#c9a15a" stroke="#5a3a1a" stroke-width="1">
+                <circle cx="38" cy="72" r="2.4"/>
+                <circle cx="44" cy="76" r="2.4"/>
+                <circle cx="50" cy="78" r="2.4"/>
+                <circle cx="56" cy="76" r="2.4"/>
+                <circle cx="62" cy="72" r="2.4"/>
+            </g>
+        </svg>''',
         "greeting": "나무관세음보살. 그대의 발걸음이 이곳에 닿은 것도 인연이니, 오늘의 기운을 살펴보겠소.",
         "ask_name": "그대의 이름은 무엇이오?",
         "react_name": lambda n: f"{n}이라, 좋은 이름을 가지셨소." if n else "이름을 밝히지 않아도 무방하오.",
@@ -257,6 +325,24 @@ PERSONAS = {
     },
     "fox_spirit": {
         "name": "여우신령", "emoji": "🌙", "color": "#9b59b6",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 100 C12 76 30 66 50 66 C70 66 88 76 88 100 Z" fill="#3d2a5c"/>
+            <path d="M30 100 C32 82 40 72 50 72 C60 72 68 82 70 100 Z" fill="#c9b8e8"/>
+            <path d="M28 24 L36 4 L44 26 Z" fill="#f2eee8"/>
+            <path d="M31 22 L36 10 L40 24 Z" fill="#e8b3c9"/>
+            <path d="M72 24 L64 4 L56 26 Z" fill="#f2eee8"/>
+            <path d="M69 22 L64 10 L60 24 Z" fill="#e8b3c9"/>
+            <rect x="44" y="55" width="12" height="14" rx="4" fill="#f5ece0"/>
+            <circle cx="50" cy="43" r="19" fill="#f5ece0"/>
+            <path d="M27 38 Q22 66 30 84 L36 80 Q29 60 30 40 Z" fill="#e8e4f0"/>
+            <path d="M73 38 Q78 66 70 84 L64 80 Q71 60 70 40 Z" fill="#e8e4f0"/>
+            <path d="M29 32 Q50 14 71 32 Q68 22 50 18 Q32 22 29 32 Z" fill="#e8e4f0"/>
+            <path d="M39 42 Q43 39 47 42 Q43 44 39 42 Z" fill="#9b59b6"/>
+            <path d="M53 42 Q57 39 61 42 Q57 44 53 42 Z" fill="#9b59b6"/>
+            <path d="M50 44 L49 49 Q50 50.2 51 49" stroke="#d8c0a8" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M45 53 Q50 56 55 53" stroke="#8a5a7a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M50 12 A4 4 0 1 0 50 4 A3 3 0 1 1 50 12 Z" fill="#ffe066"/>
+        </svg>''',
         "greeting": "안녕하신가, 인간이여. 나는 오랜 세월을 살아온 여우니라. 그대의 오늘을 잠시 들여다보겠네.",
         "ask_name": "그대의 이름을 말해보게.",
         "react_name": lambda n: f"{n}이라... 기억해두겠네." if n else "이름은 중요치 않네, 그저 기운을 보면 되니.",
@@ -267,6 +353,23 @@ PERSONAS = {
     },
     "cat_sage": {
         "name": "고양이도사", "emoji": "🐱", "color": "#f4a460",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26 26 L36 8 L42 30 Z" fill="#f4a460"/>
+            <path d="M29 24 L36 13 L38 28 Z" fill="#fff0e0"/>
+            <path d="M74 26 L64 8 L58 30 Z" fill="#f4a460"/>
+            <path d="M71 24 L64 13 L62 28 Z" fill="#fff0e0"/>
+            <circle cx="50" cy="54" r="29" fill="#f4a460"/>
+            <ellipse cx="50" cy="62" rx="15" ry="11" fill="#fff0e0"/>
+            <path d="M35 50 Q40 46 45 50" stroke="#2b1810" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <path d="M55 50 Q60 46 65 50" stroke="#2b1810" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <path d="M50 60 L46 63 L54 63 Z" fill="#c0392b"/>
+            <path d="M50 63 Q50 67 45 66" stroke="#2b1810" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <path d="M50 63 Q50 67 55 66" stroke="#2b1810" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <line x1="16" y1="58" x2="32" y2="60" stroke="#8a5a2b" stroke-width="1"/>
+            <line x1="16" y1="64" x2="32" y2="64" stroke="#8a5a2b" stroke-width="1"/>
+            <line x1="84" y1="58" x2="68" y2="60" stroke="#8a5a2b" stroke-width="1"/>
+            <line x1="84" y1="64" x2="68" y2="64" stroke="#8a5a2b" stroke-width="1"/>
+        </svg>''',
         "greeting": "냥. 오늘 운세가 궁금해서 온 게냥? 뭐, 어쩔 수 없이 봐주지 냥.",
         "ask_name": "이름이 뭐냥?",
         "react_name": lambda n: f"{n}냥? 흥, 기억해두겠다냥." if n else "이름 안 갈쳐줘도 상관없다냥.",
@@ -277,6 +380,27 @@ PERSONAS = {
     },
     "mz_saju_girl": {
         "name": "MZ 사주소녀", "emoji": "✨", "color": "#ff6b9d",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#ff6b9d"/>
+            <path d="M32 100 C34 84 41 74 50 74 C59 74 66 84 68 100 Z" fill="#fff0f5"/>
+            <circle cx="36" cy="78" r="2" fill="#ffffff"/>
+            <circle cx="64" cy="78" r="2" fill="#ffffff"/>
+            <rect x="44" y="55" width="12" height="14" rx="4" fill="#ffdbac"/>
+            <circle cx="50" cy="43" r="19" fill="#ffdbac"/>
+            <path d="M28 36 Q50 16 72 36 Q70 24 50 20 Q30 24 28 36 Z" fill="#3a2a1a"/>
+            <path d="M27 38 Q24 54 29 62 L34 58 Q29 48 30 38 Z" fill="#3a2a1a"/>
+            <path d="M73 38 Q76 54 71 62 L66 58 Q71 48 70 38 Z" fill="#3a2a1a"/>
+            <circle cx="30" cy="18" r="6" fill="#3a2a1a"/>
+            <circle cx="70" cy="18" r="6" fill="#3a2a1a"/>
+            <circle cx="30" cy="18" r="6" fill="none" stroke="#ff6b9d" stroke-width="2"/>
+            <circle cx="70" cy="18" r="6" fill="none" stroke="#ff6b9d" stroke-width="2"/>
+            <circle cx="42" cy="43" r="3.4" fill="#2b1810"/>
+            <circle cx="58" cy="43" r="3.4" fill="#2b1810"/>
+            <circle cx="43.4" cy="41.4" r="1" fill="#ffffff"/>
+            <circle cx="59.4" cy="41.4" r="1" fill="#ffffff"/>
+            <path d="M50 45 L49.3 49 Q50 50 50.7 49" stroke="#d8ac86" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+            <path d="M45 52 Q50 55 55 52" stroke="#c0526f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>''',
         "greeting": "얘들아 나 요즘 사주에 완전 꽂혀서 취미로 봐주고 있엉! 너두 궁금하지? ㅎㅎ",
         "ask_name": "이름 뭐야?? 궁금해!",
         "react_name": lambda n: f"{n}?? 완전 예쁜 이름이잖앙!!" if n else "이름 비밀이어도 오케이!",
@@ -287,6 +411,22 @@ PERSONAS = {
     },
     "saju_witch": {
         "name": "사주마녀", "emoji": "🕸", "color": "#5c2a5c",
+        "avatar_svg": '''<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 100 C14 78 30 68 50 68 C70 68 86 78 86 100 Z" fill="#2a1a2e"/>
+            <path d="M32 100 C34 84 41 74 50 74 C59 74 66 84 68 100 Z" fill="#5c2a5c"/>
+            <rect x="44" y="55" width="12" height="14" rx="4" fill="#f0dede"/>
+            <circle cx="50" cy="43" r="18" fill="#f0dede"/>
+            <path d="M39 42 Q43 39 47 42" stroke="#2a1a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M53 42 Q57 39 61 42" stroke="#2a1a2e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <ellipse cx="43" cy="43" rx="1.8" ry="2.4" fill="#5c2a5c"/>
+            <ellipse cx="57" cy="43" rx="1.8" ry="2.4" fill="#5c2a5c"/>
+            <path d="M50 44 L49.3 49 Q50 50 50.7 49" stroke="#c9a8a8" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+            <path d="M44 53 Q50 57 56 53 Q50 55 44 53 Z" fill="#4a1a2e"/>
+            <path d="M28 30 Q50 -10 72 30 Q50 22 28 30 Z" fill="#2a1a2e"/>
+            <ellipse cx="50" cy="32" rx="28" ry="6" fill="#2a1a2e"/>
+            <rect x="38" y="24" width="24" height="5" fill="#5c2a5c"/>
+            <circle cx="50" cy="26.5" r="2.4" fill="#c9a15a"/>
+        </svg>''',
         "greeting": "후후... 마녀의 솥이 오늘도 부글부글 끓고 있군요. 당신의 운명을 한번 저어볼까요?",
         "ask_name": "이름을 말해보세요, 솥에 넣어드리죠.",
         "react_name": lambda n: f"{n}... 흥미로운 이름이군요. 솥에 넣어보죠." if n else "이름이 없어도, 마녀는 다 알아낸답니다.",
