@@ -171,7 +171,7 @@ st.markdown("""
         border: none !important;
         transform: translateY(0);
     }
-    div[data-testid="column"]:nth-of-type(2) div[data-testid="stLinkButton"] a {
+    div[data-testid*="olumn"]:nth-of-type(2) div[data-testid="stLinkButton"] a {
         background: linear-gradient(180deg, #4dabff 0%, #0064ff 100%) !important;
         box-shadow:
             inset 0 1px 0 rgba(255,255,255,0.5),
