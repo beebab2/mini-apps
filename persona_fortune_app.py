@@ -31,7 +31,7 @@ if _bg_base64:
     _ext = BACKGROUND_IMAGE_PATH.split(".")[-1]
     _background_css = f"""
     .stApp {{
-        background-image: linear-gradient(rgba(20,18,22,0.82), rgba(20,18,22,0.82)),
+        background-image: linear-gradient(rgba(20,18,22,0.55), rgba(20,18,22,0.55)),
                            url("data:image/{_ext};base64,{_bg_base64}");
         background-size: cover;
         background-position: center;
