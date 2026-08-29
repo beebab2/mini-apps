@@ -176,9 +176,15 @@ st.markdown("""
         position: absolute;
         top: 10px;
         right: 12px;
-        font-size: 2.2rem;
-        opacity: 0.32;
-        transform: rotate(10deg);
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        background: rgba(255,255,255,0.28);
+        border-radius: 50%;
+        transform: rotate(8deg);
         line-height: 1;
         pointer-events: none;
     }
@@ -186,9 +192,15 @@ st.markdown("""
         position: absolute;
         bottom: 8px;
         left: 12px;
-        font-size: 2rem;
-        opacity: 0.28;
-        transform: rotate(-8deg);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        background: rgba(255,255,255,0.24);
+        border-radius: 50%;
+        transform: rotate(-6deg);
         line-height: 1;
         pointer-events: none;
     }
