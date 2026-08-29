@@ -98,25 +98,25 @@ st.markdown("""
         opacity: 1 !important;
     }
     div[data-testid="stTextInput"] input {
-        background: rgba(255,255,255,0.12) !important;
-        color: #f5f0ff !important;
-        border: 1px solid rgba(255,255,255,0.25) !important;
+        background: rgba(249,217,118,0.15) !important;
+        color: #fff6e0 !important;
+        border: 1.5px solid rgba(249,217,118,0.5) !important;
         border-radius: 12px !important;
     }
     div[data-baseweb="select"] {
         border-radius: 12px !important;
     }
     div[data-baseweb="select"] > div {
-        background: rgba(255,255,255,0.12) !important;
-        border: 1px solid rgba(255,255,255,0.25) !important;
-        color: #f5f0ff !important;
+        background: rgba(249,217,118,0.15) !important;
+        border: 1.5px solid rgba(249,217,118,0.5) !important;
+        color: #fff6e0 !important;
         border-radius: 12px !important;
     }
     div[data-baseweb="select"] span {
-        color: #f5f0ff !important;
+        color: #fff6e0 !important;
     }
     div[data-baseweb="select"] svg {
-        fill: #f5f0ff !important;
+        fill: #f9d976 !important;
     }
 </style>
 """, unsafe_allow_html=True)
