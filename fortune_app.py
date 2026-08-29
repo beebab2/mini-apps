@@ -9,9 +9,10 @@ from datetime import date
 COUPANG_LINK = "https://link.coupang.com/a/gATwbtGIIS"
 TOSS_LINK = "https://toss.me/여기에_본인_토스_쉐어링크"
 
-st.set_page_config(page_title="오늘의 운세", page_icon="🔮", layout="centered")
-# 참고: page_icon(브라우저 탭 아이콘)은 이모지만 지원되어 기기별로 다르게 보일 수 있어요.
-# 본문 제목의 아이콘은 아래에서 SVG로 직접 그려서 기기와 무관하게 항상 동일하게 표시됩니다.
+st.set_page_config(page_title="오늘의 운세", page_icon="favicon.png", layout="centered")
+# 참고: page_icon을 이모지 대신 직접 만든 이미지 파일로 지정해서
+# 기기(삼성/아이폰/PC)에 관계없이 항상 동일한 보라색 아이콘이 표시됩니다.
+# favicon.png 파일이 이 스크립트와 같은 폴더에 있어야 합니다.
 
 # ------------------------------
 # 커스텀 스타일
