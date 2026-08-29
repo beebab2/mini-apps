@@ -1675,6 +1675,11 @@ elif st.session_state.step == 4:
     seed_str = f"{st.session_state.persona_id}-{st.session_state.user_name}-{st.session_state.gender}-{birth_date}-{st.session_state.birth_time}-{date.today()}"
     random.seed(seed_str)
 
+    st.markdown(
+        f'<div style="text-align:center; color:#a89bb5; font-size:0.9rem; margin-bottom:1rem;">📅 {date.today().strftime("%Y년 %m월 %d일")} 기준 운세</div>',
+        unsafe_allow_html=True,
+    )
+
     total_luck = 0
     categories = ["총운", "애정운", "재물운", "건강운", "인간관계운"]
     active_pool = PERSONA_FORTUNE.get(st.session_state.persona_id, fortune_pool)
