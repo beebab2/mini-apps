@@ -55,10 +55,11 @@ st.markdown("""
         text-align: center;
         font-size: 2rem;
         font-weight: 800;
-        background: linear-gradient(90deg, #f9d976, #f39f86, #c99df0);
+        background: linear-gradient(90deg, #ffcf6b, #ff9d4d, #ff7043);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-bottom: 1.2rem;
+        text-shadow: 0 0 18px rgba(255, 180, 90, 0.35);
     }
     .persona-avatar {
         font-size: 3.6rem;
