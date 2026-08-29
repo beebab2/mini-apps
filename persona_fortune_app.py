@@ -659,7 +659,7 @@ elif st.session_state.step == 4:
 
     st.caption("이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.")
 
-    share_url = "여기에_배포_후_생긴_URL을_적어주세요"
+    share_url = "https://awesome-fortune.streamlit.app/"
     st.markdown("친구에게 공유하기")
     components.html(f"""
     <div style="display:flex; gap:8px; align-items:center; font-family: sans-serif;">
