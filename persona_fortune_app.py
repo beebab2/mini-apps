@@ -100,7 +100,8 @@ st.markdown("""
     }
     .avatar-showcase {
         position: relative;
-        width: 130px;
+        width: 260px;
+        max-width: 90%;
         height: 158px;
         margin: 0 auto 6px auto;
         overflow: hidden;
@@ -135,6 +136,7 @@ st.markdown("""
         font-size: 1rem;
         font-weight: 800;
         color: #f9d976;
+        white-space: nowrap;
     }
     .showcase-caption {
         text-align: center;
