@@ -1676,7 +1676,7 @@ elif st.session_state.step == 4:
     random.seed(seed_str)
 
     st.markdown(
-        f'<div style="text-align:center; color:#a89bb5; font-size:0.9rem; margin-bottom:1rem;">📅 {date.today().strftime("%Y년 %m월 %d일")} 기준 운세</div>',
+        f'<div style="text-align:center; color:#7dd490; font-size:0.9rem; margin-bottom:1rem;">📅 {date.today().strftime("%Y년 %m월 %d일")} 기준 운세</div>',
         unsafe_allow_html=True,
     )
 
