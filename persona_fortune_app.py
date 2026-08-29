@@ -730,6 +730,8 @@ lucky_times = ["오전 9시~11시", "정오~오후 1시", "오후 3시~5시", "�
 # ------------------------------
 if "persona_id" not in st.session_state:
     st.session_state.persona_id = "mz_shaman"
+if "persona_selected_once" not in st.session_state:
+    st.session_state.persona_selected_once = False
 if "persona_locked" not in st.session_state:
     st.session_state.persona_locked = False
 if "step" not in st.session_state:
@@ -746,15 +748,25 @@ if "birth_day" not in st.session_state:
 st.markdown('<div class="main-title">🔮 <span class="title-blue">운세</span> <span class="title-warm">캐릭터관</span></div>', unsafe_allow_html=True)
 
 # 캐릭터 선택 (언제든 변경 가능 -> 바꾸면 처음부터 다시 시작)
+# 처음엔 아무것도 선택되지 않은 상태로 시작해서, 기본값(MZ 여자무당)을 고르더라도
+# "선택했다"는 동작이 확실히 감지되도록 합니다.
+select_index = (
+    list(PERSONAS.keys()).index(st.session_state.persona_id)
+    if st.session_state.persona_selected_once else None
+)
 new_persona_id = st.selectbox(
     "캐릭터 선택",
     list(PERSONAS.keys()),
-    index=list(PERSONAS.keys()).index(st.session_state.persona_id),
+    index=select_index,
     format_func=lambda k: f"{PERSONAS[k]['emoji']} {PERSONAS[k]['name']}",
+    placeholder="👆 캐릭터를 선택해보세요",
     label_visibility="collapsed",
 )
-if new_persona_id != st.session_state.persona_id:
+if new_persona_id is not None and (
+    not st.session_state.persona_selected_once or new_persona_id != st.session_state.persona_id
+):
     st.session_state.persona_id = new_persona_id
+    st.session_state.persona_selected_once = True
     st.session_state.persona_locked = True
     st.session_state.current_greeting = random.choice(PERSONAS[new_persona_id]["greeting"])
     st.session_state.step = 0
@@ -806,6 +818,7 @@ if st.session_state.step == 0:
     else:
         if st.button("시작하기 →", use_container_width=True):
             st.session_state.persona_locked = True
+            st.session_state.persona_selected_once = True
             st.session_state.current_greeting = random.choice(persona["greeting"])
             st.rerun()
 
@@ -966,4 +979,5 @@ elif st.session_state.step == 4:
     if st.button("🔄 처음부터 다시하기", use_container_width=True):
         st.session_state.step = 0
         st.session_state.persona_locked = False
+        st.session_state.persona_selected_once = False
         st.rerun()
