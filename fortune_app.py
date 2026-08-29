@@ -1,5 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
+from PIL import Image
 import random
 from datetime import date
 
@@ -9,10 +10,15 @@ from datetime import date
 COUPANG_LINK = "https://link.coupang.com/a/gATwbtGIIS"
 TOSS_LINK = "https://toss.me/여기에_본인_토스_쉐어링크"
 
-st.set_page_config(page_title="오늘의 운세", page_icon="favicon.png", layout="centered")
+try:
+    _favicon = Image.open("favicon.png")
+except Exception:
+    _favicon = "🔮"
+
+st.set_page_config(page_title="오늘의 운세", page_icon=_favicon, layout="centered")
 # 참고: page_icon을 이모지 대신 직접 만든 이미지 파일로 지정해서
 # 기기(삼성/아이폰/PC)에 관계없이 항상 동일한 보라색 아이콘이 표시됩니다.
-# favicon.png 파일이 이 스크립트와 같은 폴더에 있어야 합니다.
+# favicon.png 파일을 못 찾으면 기존 이모지로 자동 대체됩니다 (에러 방지).
 
 # ------------------------------
 # 커스텀 스타일
