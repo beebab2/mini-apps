@@ -174,9 +174,10 @@ st.markdown("""
         -webkit-text-size-adjust: 100% !important;
         text-size-adjust: 100% !important;
     }
-    div[data-testid="stLinkButton"] a p {
-        font-size: inherit !important;
-        font-weight: inherit !important;
+    div[data-testid="stLinkButton"] a * {
+        font-size: 1.4rem !important;
+        font-weight: 900 !important;
+        color: #ffffff !important;
     }
     @media (max-width: 480px) {
         div[data-testid="stLinkButton"] a {
@@ -184,8 +185,12 @@ st.markdown("""
             padding: 16px 4px !important;
             line-height: 1.15 !important;
         }
+        div[data-testid="stLinkButton"] a * {
+            font-size: 2.6rem !important;
+        }
     }
-    div[data-testid*="olumn"]:nth-of-type(2) div[data-testid="stLinkButton"] a {
+    div[data-testid*="olumn"]:nth-of-type(2) div[data-testid="stLinkButton"] a,
+    div[data-testid*="olumn"]:nth-of-type(2) div[data-testid="stLinkButton"] a * {
         background: linear-gradient(180deg, #4dabff 0%, #0064ff 100%) !important;
         box-shadow:
             inset 0 1px 0 rgba(255,255,255,0.5),
