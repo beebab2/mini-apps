@@ -1,6 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import random
+import base64
+import os
 from datetime import date
 
 # ------------------------------
@@ -9,13 +11,46 @@ from datetime import date
 COUPANG_LINK = "https://link.coupang.com/a/gATwbtGIIS"
 TOSS_LINK = "https://toss.me/여기에_본인_토스_쉐어링크"
 
-st.set_page_config(page_title="운세 캐릭터관", page_icon="🔮", layout="centered")
+# ------------------------------
+# 배경 이미지 설정
+# 이 파일과 같은 폴더에 background.jpg (또는 .png) 파일을 넣으면
+# 자동으로 배경으로 깔리고, 없으면 기존 그라데이션이 그대로 사용됩니다.
+# ------------------------------
+BACKGROUND_IMAGE_PATH = "background.jpg"
 
-st.markdown("""
-<style>
+
+def _get_base64_image(path: str):
+    if not os.path.exists(path):
+        return None
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+
+_bg_base64 = _get_base64_image(BACKGROUND_IMAGE_PATH)
+if _bg_base64:
+    _ext = BACKGROUND_IMAGE_PATH.split(".")[-1]
+    _background_css = f"""
+    .stApp {{
+        background-image: linear-gradient(rgba(20,18,22,0.82), rgba(20,18,22,0.82)),
+                           url("data:image/{_ext};base64,{_bg_base64}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+    """
+else:
+    _background_css = """
     .stApp {
         background: linear-gradient(180deg, #1c1a1f 0%, #2a2630 50%, #1c1a1f 100%);
     }
+    """
+
+st.set_page_config(page_title="운세 캐릭터관", page_icon="🔮", layout="centered")
+
+st.markdown(f"<style>{_background_css}</style>", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
     .main-title {
         text-align: center;
         font-size: 2rem;
