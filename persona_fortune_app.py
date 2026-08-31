@@ -184,6 +184,47 @@ elif _n_bg == 1:
         background-attachment: fixed;
     }}
     """
+elif _n_bg == 2:
+    # 정확히 2장일 때는 :before / :after 가상 요소로 진짜 크로스페이드를 만듭니다.
+    (_ext_a, _b64_a), (_ext_b, _b64_b) = _bg_images
+    _duration = _n_bg * BACKGROUND_SLIDE_INTERVAL
+    _background_css = f"""
+    .stApp {{
+        position: relative;
+        background: #1c1a1f;
+    }}
+    .stApp::before, .stApp::after {{
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background-size: cover;
+        background-position: center 12%;
+        background-repeat: no-repeat;
+    }}
+    .stApp::before {{
+        background-image: {_OVERLAY}, url("data:image/{_ext_a};base64,{_b64_a}");
+        animation: bgFadeA {_duration}s ease-in-out infinite;
+    }}
+    .stApp::after {{
+        background-image: {_OVERLAY}, url("data:image/{_ext_b};base64,{_b64_b}");
+        animation: bgFadeB {_duration}s ease-in-out infinite;
+    }}
+    @keyframes bgFadeA {{
+        0%   {{ opacity: 1; }}
+        42%  {{ opacity: 1; }}
+        50%  {{ opacity: 0; }}
+        92%  {{ opacity: 0; }}
+        100% {{ opacity: 1; }}
+    }}
+    @keyframes bgFadeB {{
+        0%   {{ opacity: 0; }}
+        42%  {{ opacity: 0; }}
+        50%  {{ opacity: 1; }}
+        92%  {{ opacity: 1; }}
+        100% {{ opacity: 0; }}
+    }}
+    """
 else:
     _duration = _n_bg * BACKGROUND_SLIDE_INTERVAL
     _slice_pct = 100 / _n_bg
