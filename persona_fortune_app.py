@@ -166,85 +166,55 @@ for _candidate in BACKGROUND_IMAGE_CANDIDATES:
         _bg_images.append((_ext, _b64))
 
 _n_bg = len(_bg_images)
+_OVERLAY = "linear-gradient(rgba(20,18,22,0.55), rgba(20,18,22,0.55))"
 
 if _n_bg == 0:
     _background_css = """
     .stApp {
         background: linear-gradient(180deg, #1c1a1f 0%, #2a2630 50%, #1c1a1f 100%);
     }
-    .bg-slide-layer, .bg-overlay { display: none; }
     """
-    _background_layers_html = ""
 elif _n_bg == 1:
     _ext, _b64 = _bg_images[0]
     _background_css = f"""
     .stApp {{
-        background: #1c1a1f;
-    }}
-    .bg-slide-layer {{
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        background-image: url("data:image/{_ext};base64,{_b64}");
+        background-image: {_OVERLAY}, url("data:image/{_ext};base64,{_b64}");
         background-size: cover;
         background-position: center;
-    }}
-    .bg-overlay {{
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        background: rgba(20,18,22,0.55);
+        background-attachment: fixed;
     }}
     """
-    _background_layers_html = '<div class="bg-slide-layer"></div><div class="bg-overlay"></div>'
 else:
     _duration = _n_bg * BACKGROUND_SLIDE_INTERVAL
     _slice_pct = 100 / _n_bg
-    _layers_css = ""
-    _layers_html = ""
+    _keyframe_steps = ""
     for _i, (_ext, _b64) in enumerate(_bg_images):
-        _delay = -(_i * BACKGROUND_SLIDE_INTERVAL)
-        _layers_css += f"""
-        .bg-slide-layer-{_i} {{
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            background-image: url("data:image/{_ext};base64,{_b64}");
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            animation-name: bgSlideCycle;
-            animation-duration: {_duration}s;
-            animation-delay: {_delay}s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-        }}
-        """
-        _layers_html += f'<div class="bg-slide-layer-{_i}"></div>'
-
-    _fade_in_end = min(_slice_pct - 1, _slice_pct * 0.25)
-    _fade_out_start = max(_slice_pct - 3, _slice_pct * 0.75)
+        _pct = _i * _slice_pct
+        _keyframe_steps += (
+            f'{_pct:.3f}% {{ background-image: {_OVERLAY}, '
+            f'url("data:image/{_ext};base64,{_b64}"); }}\n'
+        )
+    # 마지막에 처음 이미지로 자연스럽게 루프
+    _first_ext, _first_b64 = _bg_images[0]
+    _keyframe_steps += (
+        f'100% {{ background-image: {_OVERLAY}, '
+        f'url("data:image/{_first_ext};base64,{_first_b64}"); }}\n'
+    )
 
     _background_css = f"""
     .stApp {{
-        background: #1c1a1f;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        animation-name: bgImageSwap;
+        animation-duration: {_duration}s;
+        animation-timing-function: steps(1);
+        animation-iteration-count: infinite;
     }}
-    {_layers_css}
-    .bg-overlay {{
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        background: rgba(20,18,22,0.55);
-    }}
-    @keyframes bgSlideCycle {{
-        0% {{ opacity: 0; transform: translateX(100%); }}
-        {_fade_in_end:.2f}% {{ opacity: 1; transform: translateX(0); }}
-        {_fade_out_start:.2f}% {{ opacity: 1; transform: translateX(0); }}
-        {_slice_pct:.2f}% {{ opacity: 0; transform: translateX(-100%); }}
-        100% {{ opacity: 0; transform: translateX(100%); }}
+    @keyframes bgImageSwap {{
+        {_keyframe_steps}
     }}
     """
-    _background_layers_html = _layers_html + '<div class="bg-overlay"></div>'
 
 st.set_page_config(page_title="운세 캐릭터관", page_icon="🔮", layout="centered")
 
@@ -259,8 +229,6 @@ with st.expander("🛠️ 디버그 정보 (배경 문제 확인용)"):
     st.write("찾은 배경 이미지 목록:", [c for c in BACKGROUND_IMAGE_CANDIDATES if os.path.exists(c)])
 
 st.markdown(f"<style>{_background_css}</style>", unsafe_allow_html=True)
-if _background_layers_html:
-    st.markdown(_background_layers_html, unsafe_allow_html=True)
 
 st.markdown("""
 <style>
