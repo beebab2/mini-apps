@@ -1711,6 +1711,13 @@ elif st.session_state.step == 3:
     </div>
     """, unsafe_allow_html=True)
 
+    st.markdown(
+        '<div style="text-align:center; color:#c9b8e8; font-size:0.92rem; margin:4px 0 10px 0;">'
+        '✨ 사주를 풀어드리는 동안 잠깐, 이것부터 확인해보세요 ✨</div>',
+        unsafe_allow_html=True,
+    )
+    st.link_button("🎁 오늘의 특가 미리 보기", COUPANG_LINK, use_container_width=True)
+
     if st.button(persona["button_label"], use_container_width=True):
         st.session_state.step = 4
         st.rerun()
