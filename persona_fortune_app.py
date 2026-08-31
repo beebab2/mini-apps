@@ -137,10 +137,18 @@ def get_coupang_link_for(birth_year: int) -> str:
 
 # ------------------------------
 # 배경 이미지 설정
-# 이 파일과 같은 폴더에 background.jpg (또는 .png) 파일을 넣으면
-# 자동으로 배경으로 깔리고, 없으면 기존 그라데이션이 그대로 사용됩니다.
+# 이 파일과 같은 폴더에 background.jpg, background2.jpg, background3.jpg ...
+# 처럼 파일을 넣으면, 존재하는 파일들이 자동으로 일정 간격마다 슬라이딩되며 넘어갑니다.
+# 파일이 하나도 없으면 기존 그라데이션이 사용됩니다.
 # ------------------------------
-BACKGROUND_IMAGE_PATH = "background.jpg"
+BACKGROUND_IMAGE_CANDIDATES = [
+    "background.jpg", "background.png",
+    "background2.jpg", "background2.png",
+    "background3.jpg", "background3.png",
+    "background4.jpg", "background4.png",
+    "background5.jpg", "background5.png",
+]
+BACKGROUND_SLIDE_INTERVAL = 6  # 초 단위, 배경 한 장이 머무는 시간
 
 
 def _get_base64_image(path: str):
@@ -150,28 +158,99 @@ def _get_base64_image(path: str):
         return base64.b64encode(f.read()).decode()
 
 
-_bg_base64 = _get_base64_image(BACKGROUND_IMAGE_PATH)
-if _bg_base64:
-    _ext = BACKGROUND_IMAGE_PATH.split(".")[-1]
-    _background_css = f"""
-    .stApp {{
-        background-image: linear-gradient(rgba(20,18,22,0.55), rgba(20,18,22,0.55)),
-                           url("data:image/{_ext};base64,{_bg_base64}");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }}
-    """
-else:
+_bg_images = []
+for _candidate in BACKGROUND_IMAGE_CANDIDATES:
+    _b64 = _get_base64_image(_candidate)
+    if _b64:
+        _ext = _candidate.split(".")[-1]
+        _bg_images.append((_ext, _b64))
+
+_n_bg = len(_bg_images)
+
+if _n_bg == 0:
     _background_css = """
     .stApp {
         background: linear-gradient(180deg, #1c1a1f 0%, #2a2630 50%, #1c1a1f 100%);
     }
+    .bg-slide-layer, .bg-overlay { display: none; }
     """
+    _background_layers_html = ""
+elif _n_bg == 1:
+    _ext, _b64 = _bg_images[0]
+    _background_css = f"""
+    .stApp {{
+        background: #1c1a1f;
+    }}
+    .bg-slide-layer {{
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background-image: url("data:image/{_ext};base64,{_b64}");
+        background-size: cover;
+        background-position: center 15%;
+    }}
+    .bg-overlay {{
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: rgba(20,18,22,0.55);
+    }}
+    """
+    _background_layers_html = '<div class="bg-slide-layer"></div><div class="bg-overlay"></div>'
+else:
+    _duration = _n_bg * BACKGROUND_SLIDE_INTERVAL
+    _slice_pct = 100 / _n_bg
+    _layers_css = ""
+    _layers_html = ""
+    for _i, (_ext, _b64) in enumerate(_bg_images):
+        _delay = -(_i * BACKGROUND_SLIDE_INTERVAL)
+        _layers_css += f"""
+        .bg-slide-layer-{_i} {{
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background-image: url("data:image/{_ext};base64,{_b64}");
+            background-size: cover;
+            background-position: center 15%;
+            opacity: 0;
+            animation-name: bgSlideCycle;
+            animation-duration: {_duration}s;
+            animation-delay: {_delay}s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }}
+        """
+        _layers_html += f'<div class="bg-slide-layer-{_i}"></div>'
+
+    _fade_in_end = min(_slice_pct - 1, _slice_pct * 0.25)
+    _fade_out_start = max(_slice_pct - 3, _slice_pct * 0.75)
+
+    _background_css = f"""
+    .stApp {{
+        background: #1c1a1f;
+    }}
+    {_layers_css}
+    .bg-overlay {{
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: rgba(20,18,22,0.55);
+    }}
+    @keyframes bgSlideCycle {{
+        0% {{ opacity: 0; transform: translateX(100%); }}
+        {_fade_in_end:.2f}% {{ opacity: 1; transform: translateX(0); }}
+        {_fade_out_start:.2f}% {{ opacity: 1; transform: translateX(0); }}
+        {_slice_pct:.2f}% {{ opacity: 0; transform: translateX(-100%); }}
+        100% {{ opacity: 0; transform: translateX(100%); }}
+    }}
+    """
+    _background_layers_html = _layers_html + '<div class="bg-overlay"></div>'
 
 st.set_page_config(page_title="운세 캐릭터관", page_icon="🔮", layout="centered")
 
 st.markdown(f"<style>{_background_css}</style>", unsafe_allow_html=True)
+if _background_layers_html:
+    st.markdown(_background_layers_html, unsafe_allow_html=True)
 
 st.markdown("""
 <style>
