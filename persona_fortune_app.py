@@ -1711,12 +1711,19 @@ elif st.session_state.step == 3:
     </div>
     """, unsafe_allow_html=True)
 
+    hook_variants = [
+        "오늘 운에 따른 행운템은? 확인하기",
+        "지금 안 보면 후회하는 특가 ⏰",
+        "몇 명이나 이미 샀을까? 확인해보기",
+        "사주보다 중요한 오늘의 혜택",
+    ]
+    hook_button_label = random.choice(hook_variants)
     st.markdown(
         '<div style="text-align:center; color:#c9b8e8; font-size:0.92rem; margin:4px 0 10px 0;">'
-        '✨ 사주를 풀어드리는 동안 잠깐, 이것부터 확인해보세요 ✨</div>',
+        '✨ 사주를 풀어드리는 동안 잠깐 ✨</div>',
         unsafe_allow_html=True,
     )
-    st.link_button("🎁 오늘의 특가 미리 보기", COUPANG_LINK, use_container_width=True)
+    st.link_button(hook_button_label, COUPANG_LINK, use_container_width=True)
 
     if st.button(persona["button_label"], use_container_width=True):
         st.session_state.step = 4
