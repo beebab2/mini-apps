@@ -187,7 +187,7 @@ elif _n_bg == 1:
         z-index: -2;
         background-image: url("data:image/{_ext};base64,{_b64}");
         background-size: cover;
-        background-position: center 15%;
+        background-position: center;
     }}
     .bg-overlay {{
         position: fixed;
@@ -211,7 +211,7 @@ else:
             z-index: -2;
             background-image: url("data:image/{_ext};base64,{_b64}");
             background-size: cover;
-            background-position: center 15%;
+            background-position: center;
             opacity: 0;
             animation-name: bgSlideCycle;
             animation-duration: {_duration}s;
