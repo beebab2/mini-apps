@@ -248,6 +248,16 @@ else:
 
 st.set_page_config(page_title="운세 캐릭터관", page_icon="🔮", layout="centered")
 
+# ------------------------------
+# 임시 디버그: 배경 이미지가 안 보일 때 원인 확인용
+# 확인 끝나면 이 블록은 지워도 됩니다.
+# ------------------------------
+with st.expander("🛠️ 디버그 정보 (배경 문제 확인용)"):
+    st.write("현재 작업 폴더:", os.getcwd())
+    st.write("폴더 안 파일 목록:", os.listdir("."))
+    st.write("찾은 배경 이미지 개수:", _n_bg)
+    st.write("찾은 배경 이미지 목록:", [c for c in BACKGROUND_IMAGE_CANDIDATES if os.path.exists(c)])
+
 st.markdown(f"<style>{_background_css}</style>", unsafe_allow_html=True)
 if _background_layers_html:
     st.markdown(_background_layers_html, unsafe_allow_html=True)
