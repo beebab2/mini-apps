@@ -33,6 +33,17 @@ AGE_GROUP_COUPANG_LINKS = {
     "70plus": "https://link.coupang.com/a/gATwbtGIIS",   # 예: 건강/의료용품
 }
 
+# ------------------------------
+# 연령대별 토스 쉐어링크
+# 토스쇼핑에서 상품을 직접 골라 수동으로 발급받은 쉐어링크입니다.
+# ------------------------------
+AGE_GROUP_TOSS_LINKS = {
+    "10_20s": "https://toss.im/_m/9jCYHewo",   # 슈몽드 라블랙베리 니치향수
+    "30_40s": "https://toss.im/_m/LXT9sjBe",   # 돌체구스토 커피머신 지니오 S
+    "50_60s": "https://toss.im/_m/NM4jYavt",   # 신정애원장 명작 발효 침향단
+    "70plus": "https://toss.im/_m/V4ObJJF4",   # 영광 모싯잎 생 모시송편
+}
+
 
 def get_age_group(birth_year: int) -> str:
     age = date.today().year - birth_year
@@ -44,6 +55,11 @@ def get_age_group(birth_year: int) -> str:
         return "50_60s"
     else:
         return "70plus"
+
+
+def get_toss_link_for(birth_year: int) -> str:
+    group = get_age_group(birth_year)
+    return AGE_GROUP_TOSS_LINKS.get(group, TOSS_LINK)
 
 
 # ------------------------------
@@ -1973,7 +1989,7 @@ elif st.session_state.step == 4:
     with col1:
         st.link_button("쿠팡에서 행운템 보기 🛒", get_coupang_link_for(st.session_state.birth_year), use_container_width=True)
     with col2:
-        st.link_button("토스로 용돈 받기 💰", TOSS_LINK, use_container_width=True)
+        st.link_button("토스로 용돈 받기 💰", get_toss_link_for(st.session_state.birth_year), use_container_width=True)
 
     st.caption("이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.")
 
